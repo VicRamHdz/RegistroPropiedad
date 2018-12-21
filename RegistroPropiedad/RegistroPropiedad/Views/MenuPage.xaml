@@ -1,7 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             x:Class="RegistroPropiedad.Views.MenuPage">
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:controls="clr-namespace:RegistroPropiedad.CustomControls"
+             xmlns:local="clr-namespace:RegistroPropiedad.Views"
+             x:Class="RegistroPropiedad.Views.MenuPage"
+             Title="Personal Organiser">
+    <ContentPage.Resources>
+        <ffimageloadingsvg:SvgImageSourceConverter x:Key="SvgImageSourceConverter"></ffimageloadingsvg:SvgImageSourceConverter>
+    </ContentPage.Resources>
     <ContentPage.Content>
+        <StackLayout>
+        <ListView x:Name="listView" x:FieldModifier="public">
+           <ListView.ItemsSource>
+                <x:Array Type="{x:Type controls:MasterPageItem}">
+                    <controls:MasterPageItem Title="Contacts" IconSource="iCamera.svg" TargetType="{x:Type local:NoticiasPage}" />
+                    <controls:MasterPageItem Title="TodoList" IconSource="iChat.svg" TargetType="{x:Type local:NoticiasPage}" />
+                    <controls:MasterPageItem Title="Reminders" IconSource="circleok.svg" TargetType="{x:Type local:NoticiasPage}" />
+                </x:Array>
+            </ListView.ItemsSource>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="5,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <ffimageloadingsvg:SvgCachedImage 
+                            Source = "{Binding IconSource, Converter={StaticResource SvgImageSourceConverter}}"/>
+                            <Label Grid.Column="1" Text="{Binding Title}" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
     </ContentPage.Content>
 </ContentPage>
