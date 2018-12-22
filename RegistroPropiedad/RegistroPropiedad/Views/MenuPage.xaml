@@ -29,12 +29,12 @@
                     <x:Array Type="{x:Type controls:MasterPageItem}">
                         <controls:MasterPageItem Title="Inicio" IconSource="iHome.svg" TargetType="{x:Type local:NoticiasPage}" />
                         <controls:MasterPageItem Title="Perfil" IconSource="iPerfil.svg" TargetType="{x:Type local:PerfilPage}" />
-                        <controls:MasterPageItem Title="Nuevo Tramite" IconSource="iTramite.svg" TargetType="{x:Type local:NoticiasPage}" />
-                        <controls:MasterPageItem Title="Mis Tramite" IconSource="iMTramite.svg" TargetType="{x:Type local:NoticiasPage}" />
+                        <controls:MasterPageItem Title="Nuevo Trámite" IconSource="iTramite.svg" TargetType="{x:Type local:NoticiasPage}" />
+                        <controls:MasterPageItem Title="Mis Trámites" IconSource="iMTramite.svg" TargetType="{x:Type local:NoticiasPage}" />
                         <controls:MasterPageItem Title="Sugerencias/Quejas" IconSource="iSugerencia.svg" TargetType="{x:Type local:NoticiasPage}" />
                         <controls:MasterPageItem Title="Consulta" IconSource="iConsulta.svg" TargetType="{x:Type local:NoticiasPage}" />
                         <controls:MasterPageItem Title="QRScanner" IconSource="iCode.svg" TargetType="{x:Type local:NoticiasPage}" />
-                        <controls:MasterPageItem Title="Ubicacion" IconSource="iLocation.svg" TargetType="{x:Type local:NoticiasPage}" />
+                        <controls:MasterPageItem Title="Ubicación" IconSource="iLocation.svg" TargetType="{x:Type local:NoticiasPage}" />
                         <controls:MasterPageItem Title="Contactanos" IconSource="iContact.svg" TargetType="{x:Type local:NoticiasPage}" />
                         <controls:MasterPageItem Title="Cerrar Sesión" IconSource="iSalir.svg" TargetType="{x:Type local:NoticiasPage}" />
                     </x:Array>
