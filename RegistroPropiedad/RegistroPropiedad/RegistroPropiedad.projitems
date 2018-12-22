@@ -19,6 +19,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\PerfilPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
@@ -33,6 +37,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)CustomControls\MasterPageItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\NoticiasPage.xaml.cs">
       <DependentUpon>NoticiasPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)CustomControls\CustomViewCell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\PerfilPage.xaml.cs">
+      <DependentUpon>PerfilPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

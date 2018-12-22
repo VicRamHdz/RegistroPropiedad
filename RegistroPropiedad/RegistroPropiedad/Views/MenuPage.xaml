@@ -1,40 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              xmlns:controls="clr-namespace:RegistroPropiedad.CustomControls"
              xmlns:local="clr-namespace:RegistroPropiedad.Views"
              x:Class="RegistroPropiedad.Views.MenuPage"
-             Title="Personal Organiser">
+             Icon="iMenu.png"
+             Title="Menu">
     <ContentPage.Resources>
         <ffimageloadingsvg:SvgImageSourceConverter x:Key="SvgImageSourceConverter"></ffimageloadingsvg:SvgImageSourceConverter>
     </ContentPage.Resources>
-    <ContentPage.Content>
-        <StackLayout>
-        <ListView x:Name="listView" x:FieldModifier="public">
-           <ListView.ItemsSource>
-                <x:Array Type="{x:Type controls:MasterPageItem}">
-                    <controls:MasterPageItem Title="Contacts" IconSource="iCamera.svg" TargetType="{x:Type local:NoticiasPage}" />
-                    <controls:MasterPageItem Title="TodoList" IconSource="iChat.svg" TargetType="{x:Type local:NoticiasPage}" />
-                    <controls:MasterPageItem Title="Reminders" IconSource="circleok.svg" TargetType="{x:Type local:NoticiasPage}" />
-                </x:Array>
-            </ListView.ItemsSource>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Grid Padding="5,10">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="30"/>
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <ffimageloadingsvg:SvgCachedImage 
-                            Source = "{Binding IconSource, Converter={StaticResource SvgImageSourceConverter}}"/>
-                            <Label Grid.Column="1" Text="{Binding Title}" />
-                        </Grid>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
+    <!--<ContentPage.Content>-->
+        <StackLayout BackgroundColor="{StaticResource MenuBaseBackgroundColor}" Spacing="0" Orientation="Vertical">
+            <Grid BackgroundColor="{StaticResource MenuTopBackgroundColor}" HeightRequest="280">
+                <StackLayout Orientation="Vertical" Spacing="5" VerticalOptions="CenterAndExpand">
+                    <ffimageloading:CachedImage WidthRequest="110" HeightRequest="110" 
+                        HorizontalOptions="Center" DownsampleToViewSize="true" Aspect="AspectFit"
+                        Source = "Logo.png"/>
+                    <Label Text="Juan Carlos" TextColor="White" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+            </Grid>
+                
+            <ListView x:Name="listViewMenu" x:FieldModifier="public" RefreshAllowed="false" RowHeight="50"
+                      IsPullToRefreshEnabled="false" HasUnevenRows="True" VerticalOptions="FillAndExpand"
+                      BackgroundColor="Transparent" Margin="20" SeparatorVisibility="None">
+               <ListView.ItemsSource>
+                    <x:Array Type="{x:Type controls:MasterPageItem}">
+                        <controls:MasterPageItem Title="Inicio" IconSource="iHome.svg" TargetType="{x:Type local:NoticiasPage}" />
+                        <controls:MasterPageItem Title="Perfil" IconSource="iPerfil.svg" TargetType="{x:Type local:PerfilPage}" />
+                        <controls:MasterPageItem Title="Nuevo Tramite" IconSource="iTramite.svg" TargetType="{x:Type local:NoticiasPage}" />
+                        <controls:MasterPageItem Title="Mis Tramite" IconSource="iMTramite.svg" TargetType="{x:Type local:NoticiasPage}" />
+                        <controls:MasterPageItem Title="Sugerencias/Quejas" IconSource="iSugerencia.svg" TargetType="{x:Type local:NoticiasPage}" />
+                        <controls:MasterPageItem Title="Consulta" IconSource="iConsulta.svg" TargetType="{x:Type local:NoticiasPage}" />
+                        <controls:MasterPageItem Title="QRScanner" IconSource="iCode.svg" TargetType="{x:Type local:NoticiasPage}" />
+                        <controls:MasterPageItem Title="Ubicacion" IconSource="iLocation.svg" TargetType="{x:Type local:NoticiasPage}" />
+                        <controls:MasterPageItem Title="Contactanos" IconSource="iContact.svg" TargetType="{x:Type local:NoticiasPage}" />
+                        <controls:MasterPageItem Title="Cerrar Sesión" IconSource="iSalir.svg" TargetType="{x:Type local:NoticiasPage}" />
+                    </x:Array>
+                </ListView.ItemsSource>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <controls:CustomViewCell>
+                            <Grid Margin="0,5,0,5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="40"/>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="1"/>
+                                </Grid.RowDefinitions>
+                                <ffimageloadingsvg:SvgCachedImage Grid.Column="0" Grid.Row="0"
+                                Source = "{Binding IconSource, Converter={StaticResource SvgImageSourceConverter}}"/>
+                                <Label Grid.Column="1" Grid.Row="0" Text="{Binding Title}" VerticalTextAlignment="Center" />
+                                <BoxView HeightRequest="0.5" Grid.Row="1" Grid.ColumnSpan="2" Color="Gray" HorizontalOptions="FillAndExpand" />
+                            </Grid>
+                        </controls:CustomViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
         </ListView>
-    </StackLayout>
-    </ContentPage.Content>
+        </StackLayout>
+    <!--</ContentPage.Content>-->
 </ContentPage>
