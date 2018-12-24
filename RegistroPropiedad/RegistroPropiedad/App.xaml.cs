@@ -1,4 +1,7 @@
 ﻿using System;
+using FFImageLoading.Svg.Forms;
+using Prism.Unity;
+using RegistroPropiedad.Models;
 using RegistroPropiedad.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -6,13 +9,30 @@ using Xamarin.Forms.Xaml;
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace RegistroPropiedad
 {
-    public partial class App : Application
+    public partial class App : PrismApplication
     {
-        public App()
+        public static PerfilUsuarioModelo UserProfileInfo { get; set; }
+
+        public App() : this(null) { }
+
+        public App(IPlatformInitializer plataInitializer = null) : base(plataInitializer)
+        {
+
+        }
+
+        protected override void OnInitialized()
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            var ignore = new SvgCachedImage();
+
+            NavigationService.NavigateAsync("InicialPage");
+        }
+
+        protected override void RegisterTypes()
+        {
+            Container.RegisterTypeForNavigation<InicialPage>();
+            Container.RegisterTypeForNavigation<NoticiasPage>();
         }
 
         protected override void OnStart()

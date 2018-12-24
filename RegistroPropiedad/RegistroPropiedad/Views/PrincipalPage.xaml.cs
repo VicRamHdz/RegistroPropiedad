@@ -10,8 +10,6 @@ namespace RegistroPropiedad.Views
 {
     public partial class MainPage : MasterDetailPage
     {
-        MenuPage menu;
-
         public MainPage()
         {
             InitializeComponent();

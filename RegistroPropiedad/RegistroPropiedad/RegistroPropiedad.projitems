@@ -10,16 +10,20 @@
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\MainPage.xaml" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\MenuPage.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Vistas\PrincipalPage.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Vistas\MenuPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\NoticiasPage.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Vistas\NoticiasPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\PerfilPage.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Vistas\PerfilPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Vistas\InicialPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -28,23 +32,31 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)Vistas\PrincipalPage.xaml.cs">
+      <DependentUpon>PrincipalPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\MenuPage.xaml.cs">
+    <Compile Include="$(MSBuildThisFileDirectory)Vistas\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)CustomControls\MasterPageItem.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Views\NoticiasPage.xaml.cs">
+    <Compile Include="$(MSBuildThisFileDirectory)Controles\MasterPageItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Vistas\NoticiasPage.xaml.cs">
       <DependentUpon>NoticiasPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)CustomControls\CustomViewCell.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Views\PerfilPage.xaml.cs">
+    <Compile Include="$(MSBuildThisFileDirectory)Controles\CustomViewCell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Vistas\PerfilPage.xaml.cs">
       <DependentUpon>PerfilPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Modelos\PerfilUsuarioModelo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Modelos\ModeloBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Vistas\InicialPage.xaml.cs">
+      <DependentUpon>InicialPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Controles\CustomGradientButton.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Views\" />
-    <Folder Include="$(MSBuildThisFileDirectory)CustomControls\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Vistas\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Controles\" />
+    <Folder Include="$(MSBuildThisFileDirectory)VistaModelos\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Modelos\" />
   </ItemGroup>
 </Project>

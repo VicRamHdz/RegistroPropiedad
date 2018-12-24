@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="RegistroPropiedad.App">
-    <Application.Resources>
+<unity:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms" 
+                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                        xmlns:unity="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms"
+                        x:Class="RegistroPropiedad.App">
+    <unity:PrismApplication.Resources>
         <ResourceDictionary>
+            <Color x:Key="PrimaryBackgroundColor">#ffffff</Color>
             <Color x:Key="MenuBaseBackgroundColor">#e2f0fe</Color>
             <Color x:Key="MenuTopBackgroundColor">#25418b</Color>
+            <Color x:Key="PrimaryTextColor">#25418b</Color>
+            <Color x:Key="PrimaryBorderColor">#25418b</Color>
+            <Color x:Key="ButtonStartBackColor">#25418b</Color>
+            <Color x:Key="ButtonEndBackColor">#151c46</Color>
+            <Style x:Key="BoldButtonStyle" TargetType="Button">
+                <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}"/>
+                <Setter Property="FontSize" Value="20" />
+            </Style>
         </ResourceDictionary>
-    </Application.Resources>
-</Application>
+    </unity:PrismApplication.Resources>
+</unity:PrismApplication>
