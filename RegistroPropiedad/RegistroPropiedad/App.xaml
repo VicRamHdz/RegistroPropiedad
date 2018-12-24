@@ -8,10 +8,10 @@
             <Color x:Key="PrimaryBackgroundColor">#ffffff</Color>
             <Color x:Key="MenuBaseBackgroundColor">#e2f0fe</Color>
             <Color x:Key="MenuTopBackgroundColor">#25418b</Color>
-            <Color x:Key="PrimaryTextColor">#25418b</Color>
-            <Color x:Key="PrimaryBorderColor">#25418b</Color>
+            <Color x:Key="PrimaryTextColor">#005da2</Color>
+            <Color x:Key="PrimaryBorderColor">#005da2</Color>
             <Color x:Key="ButtonStartBackColor">#25418b</Color>
-            <Color x:Key="ButtonEndBackColor">#151c46</Color>
+            <Color x:Key="ButtonEndBackColor">#005da2</Color>
             <Style x:Key="BoldButtonStyle" TargetType="Button">
                 <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}"/>
                 <Setter Property="FontSize" Value="20" />

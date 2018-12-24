@@ -3,45 +3,58 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:controls="clr-namespace:RegistroPropiedad.CustomControls"
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              x:Class="RegistroPropiedad.Views.InicialPage"
              BackgroundColor="{StaticResource PrimaryBackgroundColor}">
     <ContentPage.Content>
-        <Grid>
+        <Grid Margin="0,20,0,0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="80*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="75*"/>
                 <RowDefinition Height="20*"/>
             </Grid.RowDefinitions>
             
+            <ffimageloadingsvg:SvgCachedImage WidthRequest="40" VerticalOptions="Center"
+                    HeightRequest="40" HorizontalOptions="End" Grid.Row="0"
+                    DownsampleToViewSize="true" Aspect="AspectFit" Margin="0,0,10,0"
+                    Source = "iContact.svg">
+                <ffimageloadingsvg:SvgCachedImage.Transformations>
+                    <fftransformations:TintTransformation HexColor="#005da2" 
+                                                 EnableSolidColor="true"/>
+                </ffimageloadingsvg:SvgCachedImage.Transformations>
+            </ffimageloadingsvg:SvgCachedImage>
+            
             <ffimageloading:CachedImage WidthRequest="250" VerticalOptions="Center"
-                    HeightRequest="300" HorizontalOptions="Center" Grid.Row="0"
+                    HeightRequest="300" HorizontalOptions="Center" Grid.Row="1"
                     DownsampleToViewSize="true" Aspect="AspectFit"
                     Source = "LogoSquare.png"/>
             
-            <StackLayout Margin="10" Grid.Row="1"
+            <StackLayout Margin="10" Grid.Row="2"
                                      HorizontalOptions="FillAndExpand" Spacing="10"
                                      VerticalOptions="End">
-                            <controls:CustomGradientButton 
-                                    Text="INICIAR SESION" 
-                                    TextColor="{StaticResource PrimaryTextColor}" 
-                                    Style="{StaticResource BoldButtonStyle}"
-                                    HasBorder="true"
-                                    StartColor="Transparent" 
-                                    EndColor="Transparent" 
-                                    BorderColor="{StaticResource PrimaryBorderColor}"
-                                    HeightRequest="55" HorizontalOptions="FillAndExpand" Command="{Binding LoginCommand}">
-                                <controls:CustomGradientButton.BorderWidth>
-                                    <OnPlatform x:TypeArguments="x:Double" Android="3" iOS="0.5"  />
-                                </controls:CustomGradientButton.BorderWidth>
-                            </controls:CustomGradientButton>
-                            <controls:CustomGradientButton 
-                                    Text="REGISTRO" 
-                                    Style="{StaticResource BoldButtonStyle}"
-                                    TextColor="White"
-                                    StartColor="{StaticResource ButtonStartBackColor}" 
-                                    EndColor="{StaticResource ButtonEndBackColor}"
-                                    HeightRequest="50" HorizontalOptions="FillAndExpand" 
-                                    Command="{Binding RegisterCommand}" />
-                        </StackLayout>
+                <controls:CustomGradientButton 
+                        Text="INICIAR SESION" 
+                        TextColor="{StaticResource PrimaryTextColor}" 
+                        Style="{StaticResource BoldButtonStyle}"
+                        HasBorder="true"
+                        StartColor="Transparent" 
+                        EndColor="Transparent" 
+                        BorderColor="{StaticResource PrimaryBorderColor}"
+                        HeightRequest="55" HorizontalOptions="FillAndExpand" Command="{Binding LoginCommand}">
+                    <controls:CustomGradientButton.BorderWidth>
+                        <OnPlatform x:TypeArguments="x:Double" Android="3" iOS="0.5"  />
+                    </controls:CustomGradientButton.BorderWidth>
+                </controls:CustomGradientButton>
+                <controls:CustomGradientButton 
+                        Text="REGISTRAR" 
+                        Style="{StaticResource BoldButtonStyle}"
+                        TextColor="White"
+                        StartColor="{StaticResource ButtonStartBackColor}" 
+                        EndColor="{StaticResource ButtonEndBackColor}"
+                        HeightRequest="50" HorizontalOptions="FillAndExpand" 
+                        Command="{Binding RegisterCommand}" />
+            </StackLayout>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
