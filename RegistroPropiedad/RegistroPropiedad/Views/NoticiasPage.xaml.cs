@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 
-namespace RegistroPropiedad.Views
+namespace RegistroPropiedad.Vistas
 {
-    public partial class PerfilPage : ContentPage
+    public partial class NoticiasPage : ContentPage
     {
-        public PerfilPage()
+        public NoticiasPage()
         {
             InitializeComponent();
         }

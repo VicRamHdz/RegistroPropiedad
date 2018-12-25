@@ -1,7 +1,7 @@
 ﻿using System;
 using FFImageLoading.Svg.Forms;
 using Prism.Unity;
-using RegistroPropiedad.Models;
+using RegistroPropiedad.Modelos;
 using RegistroPropiedad.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -32,7 +32,8 @@ namespace RegistroPropiedad
         protected override void RegisterTypes()
         {
             Container.RegisterTypeForNavigation<InicialPage>();
-            Container.RegisterTypeForNavigation<NoticiasPage>();
+            Container.RegisterTypeForNavigation<IniciarSesionPage>();
+            //Container.RegisterTypeForNavigation<NoticiasPage>();
         }
 
         protected override void OnStart()

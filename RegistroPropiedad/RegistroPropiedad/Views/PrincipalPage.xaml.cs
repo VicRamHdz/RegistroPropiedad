@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using RegistroPropiedad.CustomControls;
 using Xamarin.Forms;
 
-namespace RegistroPropiedad.Views
+namespace RegistroPropiedad.Vistas
 {
     public partial class PrincipalPage : MasterDetailPage
     {

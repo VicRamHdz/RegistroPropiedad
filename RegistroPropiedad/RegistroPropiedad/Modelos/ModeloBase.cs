@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Prism.Mvvm;
 
-namespace RegistroPropiedad.Models
+namespace RegistroPropiedad.Modelos
 {
     public class ModeloBase : BindableBase
     {

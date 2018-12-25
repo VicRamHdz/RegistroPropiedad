@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:controls="clr-namespace:RegistroPropiedad.CustomControls"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="RegistroPropiedad.Views.IniciarSesionPage"
+             ControlTemplate="{StaticResource CustomNavigationTemplate}">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Margin="20,70,20,20">
+                <Label Text="Identificación" Style="{StaticResource NormalLabelStyle}" 
+                       Margin="0,20,0,0" TextColor="{StaticResource PrimaryTextColor}"/>
+                <Entry Text="{Binding Email}" TextColor="{StaticResource PrimaryTextColor}"
+                       FontSize="18" HorizontalOptions="FillAndExpand" Keyboard="Numeric" HeightRequest="40" />
+                
+                <Label Text="Contraseña" Style="{StaticResource NormalLabelStyle}" 
+                       Margin="0,20,0,0" TextColor="{StaticResource PrimaryTextColor}"/>
+                <Entry Text="{Binding Password}" TextColor="{StaticResource PrimaryTextColor}"
+                       FontSize="18" IsPassword="true" HorizontalOptions="FillAndExpand" Keyboard="Text" HeightRequest="40" />
+            </StackLayout>
+            <StackLayout Spacing="0" VerticalOptions="EndAndExpand">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,0,0,20">
+                    <Label Text="Recuperas Contraseña" Style="{StaticResource BoldLabelStyle}" TextColor="{StaticResource ButtonStartBackColor}" HorizontalOptions="Center" VerticalOptions="EndAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <BoxView HorizontalOptions="FillAndExpand" Color="{StaticResource PrimaryBorderColor}" HeightRequest="1"/>
+                <controls:CustomGradientButton Text="INGRESAR" 
+                        StartColor="{StaticResource ButtonStartBackColor}" 
+                        EndColor="{StaticResource ButtonEndBackColor}"
+                        HeightRequest="50" BorderRadius="0"
+                        TextColor="{StaticResource LightTextColor}"
+                        Style="{StaticResource BoldButtonStyle}"
+                        VerticalOptions="EndAndExpand"
+                        HorizontalOptions="FillAndExpand" 
+                        Command="{Binding SignInCommand}" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

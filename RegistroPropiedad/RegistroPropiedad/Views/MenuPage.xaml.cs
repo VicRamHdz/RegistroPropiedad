@@ -4,7 +4,7 @@ using FFImageLoading.Svg.Forms;
 using RegistroPropiedad.CustomControls;
 using Xamarin.Forms;
 
-namespace RegistroPropiedad.Views
+namespace RegistroPropiedad.Vistas
 {
     public partial class MenuPage : ContentPage
     {

@@ -4,8 +4,8 @@
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              xmlns:controls="clr-namespace:RegistroPropiedad.CustomControls"
-             xmlns:local="clr-namespace:RegistroPropiedad.Views"
-             x:Class="RegistroPropiedad.Views.MenuPage"
+             xmlns:local="clr-namespace:RegistroPropiedad.Vistas"
+             x:Class="RegistroPropiedad.Vistas.MenuPage"
              Icon="iMenu.png"
              Title="Menu">
     <ContentPage.Resources>

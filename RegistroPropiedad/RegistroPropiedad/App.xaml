@@ -2,6 +2,8 @@
 <unity:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms" 
                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
                         xmlns:unity="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms"
+                        xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+                        xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
                         x:Class="RegistroPropiedad.App">
     <unity:PrismApplication.Resources>
         <ResourceDictionary>
@@ -10,12 +12,74 @@
             <Color x:Key="MenuTopBackgroundColor">#25418b</Color>
             <Color x:Key="PrimaryTextColor">#005da2</Color>
             <Color x:Key="PrimaryBorderColor">#005da2</Color>
+            <Color x:Key="LightTextColor">#FFFFFF</Color>
             <Color x:Key="ButtonStartBackColor">#25418b</Color>
             <Color x:Key="ButtonEndBackColor">#005da2</Color>
+            <!--NavTitle-->
+            <Color x:Key="TitleNavTextColor">#005da2</Color>
             <Style x:Key="BoldButtonStyle" TargetType="Button">
                 <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}"/>
                 <Setter Property="FontSize" Value="20" />
             </Style>
+            <Style x:Key="NormalLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="18" />
+            </Style>
+            <Style x:Key="BoldLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+            <ControlTemplate x:Key="CustomNavigationTemplate" 
+                xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms">
+                <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" 
+                      ColumnSpacing="0" RowSpacing="0">
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="90*"/>
+                  </Grid.RowDefinitions>
+                  <!-- Content -->
+                  <ContentPresenter Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" 
+                        VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand"/>
+                  
+                  <!--Header-->
+                  <Grid Grid.Column="0" Grid.Row="0" ColumnSpacing="0" HeightRequest="50" BackgroundColor="Transparent">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="80*"/>
+                        <ColumnDefinition Width="10*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Grid.Column="0" HeightRequest="33" WidthRequest="33"
+                                 VerticalOptions="Center" Orientation="Horizontal">
+                        <ffimageloadingsvg:SvgCachedImage Rotation="180"
+                                WidthRequest="20" HeightRequest="20" HorizontalOptions="Center"
+                                VerticalOptions="Center" Aspect="AspectFit"
+                                Source = "iChevron.svg">
+                            <ffimageloadingsvg:SvgCachedImage.Transformations>
+                                <fftransformations:TintTransformation HexColor="#005da2" 
+                                                             EnableSolidColor="true"/>
+                            </ffimageloadingsvg:SvgCachedImage.Transformations>
+                        </ffimageloadingsvg:SvgCachedImage>
+                        <!--<ffimageloading:CachedImage WidthRequest="23" HeightRequest="23" HorizontalOptions="Center"
+                            DownsampleToViewSize="true" Aspect="AspectFit" BindingContext="{TemplateBinding BindingContext}"
+                            Source = "{Binding BackIcon}"/>-->
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer BindingContext="{TemplateBinding BindingContext}"
+                                Command="{Binding BackCommand}"/>
+                        </StackLayout.GestureRecognizers>
+                        <StackLayout.Margin>
+                            <OnPlatform x:TypeArguments="Thickness" Android="10,0,0,0" iOS ="10,0,0,0" />
+                        </StackLayout.Margin>   
+                    </StackLayout>   
+
+                     <Label Grid.Column="1" BindingContext="{TemplateBinding BindingContext}"
+                            Text="{Binding Title}" FontSize="19" FontAttributes="Bold" 
+                            TextColor="{StaticResource TitleNavTextColor}"
+                            HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                    </Label>
+                    
+                  </Grid>
+                </Grid>
+            </ControlTemplate>
         </ResourceDictionary>
     </unity:PrismApplication.Resources>
 </unity:PrismApplication>

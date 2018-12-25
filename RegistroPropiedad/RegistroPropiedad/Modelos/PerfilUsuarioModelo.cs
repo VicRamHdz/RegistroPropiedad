@@ -1,5 +1,5 @@
 ﻿using System;
-namespace RegistroPropiedad.Models
+namespace RegistroPropiedad.Modelos
 {
     public class PerfilUsuarioModelo : ModeloBase
     {
