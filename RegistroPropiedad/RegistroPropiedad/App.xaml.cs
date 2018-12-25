@@ -1,4 +1,5 @@
 ﻿using System;
+using Akavache;
 using FFImageLoading.Svg.Forms;
 using Prism.Unity;
 using RegistroPropiedad.Modelos;
@@ -11,7 +12,7 @@ namespace RegistroPropiedad
 {
     public partial class App : PrismApplication
     {
-        public static PerfilUsuarioModelo UserProfileInfo { get; set; }
+        public static PerfilUsuarioModelo PerfilUsuarioInfo { get; set; }
 
         public App() : this(null) { }
 
@@ -33,22 +34,28 @@ namespace RegistroPropiedad
         {
             Container.RegisterTypeForNavigation<InicialPage>();
             Container.RegisterTypeForNavigation<IniciarSesionPage>();
-            //Container.RegisterTypeForNavigation<NoticiasPage>();
+            //Container.RegisterTypeForNavigation<MenuPage>();
         }
 
         protected override void OnStart()
         {
             // Handle when your app starts
+            //Make sure you set the application name before doing any inserts or gets
+            BlobCache.ApplicationName = "RegistroPropiedadBlob";
+            BlobCache.EnsureInitialized();
+
         }
 
         protected override void OnSleep()
         {
             // Handle when your app sleeps
+            BlobCache.Shutdown().Wait();
         }
 
         protected override void OnResume()
         {
             // Handle when your app resumes
+            BlobCache.EnsureInitialized();
         }
     }
 }

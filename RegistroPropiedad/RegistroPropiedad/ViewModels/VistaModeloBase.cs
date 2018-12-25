@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using Acr.UserDialogs;
 using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Services;
+using RegistroPropiedad.Modelos;
 using Xamarin.Forms;
 
 namespace RegistroPropiedad.ViewModels
@@ -82,6 +84,59 @@ namespace RegistroPropiedad.ViewModels
 
         public virtual void OnNavigatedTo(NavigationParameters parameters)
         {
+        }
+
+        public async Task DisplayMessage(string title, string message)
+        {
+            if (IsBusy)
+                IsBusy = false;
+            await _dialogService?.DisplayAlertAsync(title, message, "OK");
+        }
+
+        public async Task<bool> DisplayYesNoMessage(string title, string message)
+        {
+            if (IsBusy)
+                IsBusy = false;
+            return await _dialogService?.DisplayAlertAsync(title, message, "SI", "NO");
+        }
+
+        public async Task DisplayError(Exception ex)
+        {
+            if (IsBusy)
+                IsBusy = false;
+
+            //Sending stack trace to hockeyapp
+            //await ReportService.PostReport(ex, false, "App Error", $"App Error: {ex.Message}");
+
+            //Display general error
+            await _dialogService?.DisplayAlertAsync("Error", "Ocurrió un error inesperado", "OK");
+
+            //Showing error to console
+            //await _dialogService?.DisplayAlertAsync("Error", ex.Message, "OK");
+            Console.WriteLine(ex.ToString());
+        }
+
+        public async Task DisplayApiMessage<T>(ResponseResult<T> response)
+        {
+            if (IsBusy)
+                IsBusy = false;
+
+            if (response.StatusCode == 400)
+            {
+                //Display business error message
+                await _dialogService?.DisplayAlertAsync("Error", response.Message, "OK");
+            }
+            else if (response.StatusCode == 500)
+            {
+                //Sending api reason error to hockeyapp
+                //await ReportService.PostReport(new Exception(response.Message), false, "Api Error", $"API Error: {response.Message}");
+
+                //Display general error
+                await _dialogService?.DisplayAlertAsync("Error", "Ocurrió un error inesperado", "OK");
+
+                //Showing error to console
+                Console.WriteLine(response.Message);
+            }
         }
     }
 }

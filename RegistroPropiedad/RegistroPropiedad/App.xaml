@@ -64,7 +64,7 @@
                             Source = "{Binding BackIcon}"/>-->
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer BindingContext="{TemplateBinding BindingContext}"
-                                Command="{Binding BackCommand}"/>
+                                Command="{Binding RegresarCommand}"/>
                         </StackLayout.GestureRecognizers>
                         <StackLayout.Margin>
                             <OnPlatform x:TypeArguments="Thickness" Android="10,0,0,0" iOS ="10,0,0,0" />

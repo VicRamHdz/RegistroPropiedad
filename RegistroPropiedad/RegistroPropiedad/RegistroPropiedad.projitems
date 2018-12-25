@@ -62,11 +62,21 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\InicialPageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\VistaModeloBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\IniciarSesionPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\CacheHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Servicios\UsuarioServicio.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Servicios\ServicioBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Constantes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Modelos\ResponseResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Modelos\BadRequestResponseResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\NullValidators.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MenuPageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Views\" />
     <Folder Include="$(MSBuildThisFileDirectory)Controles\" />
     <Folder Include="$(MSBuildThisFileDirectory)ViewModels\" />
     <Folder Include="$(MSBuildThisFileDirectory)Modelos\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Helper\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Servicios\" />
   </ItemGroup>
 </Project>

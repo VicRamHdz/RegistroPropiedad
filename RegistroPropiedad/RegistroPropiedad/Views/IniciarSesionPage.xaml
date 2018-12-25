@@ -11,19 +11,19 @@
             <StackLayout Margin="20,70,20,20">
                 <Label Text="Identificación" Style="{StaticResource NormalLabelStyle}" 
                        Margin="0,20,0,0" TextColor="{StaticResource PrimaryTextColor}"/>
-                <Entry Text="{Binding Email}" TextColor="{StaticResource PrimaryTextColor}"
+                <Entry Text="{Binding Identificacion}" TextColor="{StaticResource PrimaryTextColor}"
                        FontSize="18" HorizontalOptions="FillAndExpand" Keyboard="Numeric" HeightRequest="40" />
                 
                 <Label Text="Contraseña" Style="{StaticResource NormalLabelStyle}" 
                        Margin="0,20,0,0" TextColor="{StaticResource PrimaryTextColor}"/>
-                <Entry Text="{Binding Password}" TextColor="{StaticResource PrimaryTextColor}"
+                <Entry Text="{Binding Contra}" TextColor="{StaticResource PrimaryTextColor}"
                        FontSize="18" IsPassword="true" HorizontalOptions="FillAndExpand" Keyboard="Text" HeightRequest="40" />
             </StackLayout>
             <StackLayout Spacing="0" VerticalOptions="EndAndExpand">
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,0,0,20">
                     <Label Text="Recuperas Contraseña" Style="{StaticResource BoldLabelStyle}" TextColor="{StaticResource ButtonStartBackColor}" HorizontalOptions="Center" VerticalOptions="EndAndExpand">
                         <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}"/>
+                            <TapGestureRecognizer Command="{Binding RecuperarContraCommand}"/>
                         </Label.GestureRecognizers>
                     </Label>
                 </StackLayout>
@@ -36,7 +36,7 @@
                         Style="{StaticResource BoldButtonStyle}"
                         VerticalOptions="EndAndExpand"
                         HorizontalOptions="FillAndExpand" 
-                        Command="{Binding SignInCommand}" />
+                        Command="{Binding IngresarCommand}" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

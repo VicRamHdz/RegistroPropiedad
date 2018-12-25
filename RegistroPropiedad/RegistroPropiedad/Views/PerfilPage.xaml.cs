@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 
-namespace RegistroPropiedad.Vistas
+namespace RegistroPropiedad.Views
 {
     public partial class PerfilPage : ContentPage
     {
