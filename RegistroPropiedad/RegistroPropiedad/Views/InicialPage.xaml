@@ -36,7 +36,7 @@
                                      HorizontalOptions="FillAndExpand" Spacing="10"
                                      VerticalOptions="End">
                 <controls:CustomGradientButton 
-                        Text="INICIAR SESION" 
+                        Text="Iniciar Sesión" 
                         TextColor="{StaticResource PrimaryTextColor}" 
                         Style="{StaticResource BoldButtonStyle}"
                         HasBorder="true"
@@ -49,7 +49,7 @@
                     </controls:CustomGradientButton.BorderWidth>
                 </controls:CustomGradientButton>
                 <controls:CustomGradientButton 
-                        Text="REGISTRAR" 
+                        Text="Registrar" 
                         Style="{StaticResource BoldButtonStyle}"
                         TextColor="{StaticResource LightTextColor}"
                         StartColor="{StaticResource ButtonStartBackColor}" 

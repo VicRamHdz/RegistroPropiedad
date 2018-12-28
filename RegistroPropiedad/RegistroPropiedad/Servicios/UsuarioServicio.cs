@@ -12,5 +12,13 @@ namespace RegistroPropiedad.Servicios
             var result = await GetAsync<PerfilUsuarioModelo>(endpoint);
             return result;
         }
+
+        public async Task<ResponseResult<PerfilUsuarioModelo>> ValidarExistenciaCedula(string cedula)
+        {
+            var endpoint = $"usuario/{cedula}";
+            var result = await GetAsync<PerfilUsuarioModelo>(endpoint);
+            return result;
+        }
+
     }
 }

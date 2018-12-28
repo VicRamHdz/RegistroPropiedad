@@ -33,9 +33,12 @@ namespace RegistroPropiedad.ViewModels
             {
                 if (await DisplayYesNoMessage("Atención", "¿Está seguro que desea cerrar sesión?"))
                 {
+                    IsBusy = true;
+                    BusyMessage = "Cerrando Sesión";
                     //remove user secure data from local database
                     App.PerfilUsuarioInfo = null;
                     CacheHelper.Cache.InvalidateAll();
+                    await Task.Delay(1000);
                     //redirect to landing page
                     ((App)Application.Current).MainPage = new InicialPage();
                 }
@@ -43,6 +46,10 @@ namespace RegistroPropiedad.ViewModels
             catch (Exception ex)
             {
                 await DisplayError(ex);
+            }
+            finally
+            {
+                IsBusy = false;
             }
         }
     }

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:RegistroPropiedad.CustomControls"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             ControlTemplate="{StaticResource CustomNavigationTemplate}"
+             x:Class="RegistroPropiedad.Views.VerificarDatosPage">
+    <ContentPage.Content>
+        
+        <StackLayout>
+            <StackLayout Margin="20,35,20,20" Spacing="5">
+                <ffimageloading:CachedImage WidthRequest="250" VerticalOptions="Start"
+                    HeightRequest="130" HorizontalOptions="Center"
+                    DownsampleToViewSize="true" Aspect="AspectFit"
+                    Source = "LogoSquare.png"/>
+                 <ScrollView>
+                    <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <Label Text="Nombres" Style="{StaticResource NormalLabelStyle}" 
+                           Margin="0,5,0,0" TextColor="{StaticResource PrimaryTextColor}"/>
+                    <Entry Text="{Binding Model.persona.nombres}" TextColor="{StaticResource SecondaryTextColor}"
+                           FontSize="18" HorizontalOptions="FillAndExpand" Keyboard="Text" HeightRequest="40" />
+                    
+                    <Label Text="Apellidos" Style="{StaticResource NormalLabelStyle}" 
+                           Margin="0,5,0,0" TextColor="{StaticResource PrimaryTextColor}"/>
+                    <Entry Text="{Binding Model.persona.apellidos}" TextColor="{StaticResource SecondaryTextColor}"
+                           FontSize="18" HorizontalOptions="FillAndExpand" Keyboard="Text" HeightRequest="40" />
+                    
+                    <Label Text="Dirección" Style="{StaticResource NormalLabelStyle}" 
+                           Margin="0,5,0,0" TextColor="{StaticResource PrimaryTextColor}"/>
+                    <Entry Text="{Binding Model.persona.direccion}" TextColor="{StaticResource SecondaryTextColor}"
+                           FontSize="18" HorizontalOptions="FillAndExpand" Keyboard="Text" HeightRequest="40" />
+                    
+                    <Label Text="Celular" Style="{StaticResource NormalLabelStyle}" 
+                           Margin="0,5,0,0" TextColor="{StaticResource PrimaryTextColor}"/>
+                    <Entry Text="{Binding Model.persona.telefono1}" TextColor="{StaticResource SecondaryTextColor}"
+                           FontSize="18" HorizontalOptions="FillAndExpand" Keyboard="Telephone" HeightRequest="40" />
+                    
+                    <Label Text="Teléfono" Style="{StaticResource NormalLabelStyle}" 
+                           Margin="0,5,0,0" TextColor="{StaticResource PrimaryTextColor}"/>
+                    <Entry Text="{Binding Model.persona.telefono2}" TextColor="{StaticResource SecondaryTextColor}"
+                           FontSize="18" HorizontalOptions="FillAndExpand" Keyboard="Telephone" HeightRequest="40" />
+                    
+                    <Label Text="Correo Electrónico" Style="{StaticResource NormalLabelStyle}" 
+                           Margin="0,5,0,0" TextColor="{StaticResource PrimaryTextColor}"/>
+                    <Entry Text="{Binding Model.persona.correo1}" TextColor="{StaticResource SecondaryTextColor}"
+                           FontSize="18" HorizontalOptions="FillAndExpand" Keyboard="Email" HeightRequest="40" />
+                    
+                     <controls:CustomGradientButton Text="Siguiente" 
+                            StartColor="{StaticResource ButtonStartBackColor}" 
+                            EndColor="{StaticResource ButtonEndBackColor}"
+                            HeightRequest="50" BorderRadius="0"
+                            Margin="0,20"
+                            TextColor="{StaticResource LightTextColor}"
+                            Style="{StaticResource BoldButtonStyle}"
+                            HorizontalOptions="FillAndExpand" 
+                        Command="{Binding SiguienteCommand}" />
+                    </StackLayout>
+                    </ScrollView>
+            </StackLayout>
+                
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

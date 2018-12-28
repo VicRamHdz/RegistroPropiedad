@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Acr.UserDialogs;
+using Plugin.Connectivity;
 using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Services;
@@ -76,6 +77,7 @@ namespace RegistroPropiedad.ViewModels
 
         public VistaModeloBase()
         {
+            DisplayLoading = true;
         }
 
         public virtual void OnNavigatedFrom(NavigationParameters parameters)
@@ -84,6 +86,19 @@ namespace RegistroPropiedad.ViewModels
 
         public virtual void OnNavigatedTo(NavigationParameters parameters)
         {
+        }
+
+        public async Task<bool> CheckInternet()
+        {
+            if (IsBusy)
+                IsBusy = false;
+
+            if (!CrossConnectivity.Current.IsConnected)
+            {
+                await _dialogService?.DisplayAlertAsync("", "No tiene conexión a internet...", "OK");
+                return false;
+            }
+            else return true;
         }
 
         public async Task DisplayMessage(string title, string message)

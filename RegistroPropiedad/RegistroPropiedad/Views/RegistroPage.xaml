@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:controls="clr-namespace:RegistroPropiedad.CustomControls"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="RegistroPropiedad.Views.RegistroPage"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             ControlTemplate="{StaticResource CustomNavigationTemplate}">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Margin="20,50,20,20">
+                <ffimageloading:CachedImage WidthRequest="250" VerticalOptions="Start"
+                    HeightRequest="150" HorizontalOptions="Center"
+                    DownsampleToViewSize="true" Aspect="AspectFit"
+                    Source = "LogoSquare.png"/>
+                <Label Text="Cédula" Style="{StaticResource NormalLabelStyle}" 
+                       Margin="0,5,0,0" TextColor="{StaticResource PrimaryTextColor}"/>
+                <Entry Text="{Binding Cedula}" TextColor="{StaticResource SecondaryTextColor}"
+                       FontSize="18" HorizontalOptions="FillAndExpand" Keyboard="Numeric" HeightRequest="40" />
+                 <controls:CustomGradientButton Text="Siguiente" 
+                        StartColor="{StaticResource ButtonStartBackColor}" 
+                        EndColor="{StaticResource ButtonEndBackColor}"
+                        HeightRequest="50" BorderRadius="0"
+                        Margin="0,20"
+                        TextColor="{StaticResource LightTextColor}"
+                        Style="{StaticResource BoldButtonStyle}"
+                        HorizontalOptions="FillAndExpand" 
+                        Command="{Binding SiguienteCommand}" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -34,7 +34,8 @@ namespace RegistroPropiedad
         {
             Container.RegisterTypeForNavigation<InicialPage>();
             Container.RegisterTypeForNavigation<IniciarSesionPage>();
-            //Container.RegisterTypeForNavigation<MenuPage>();
+            Container.RegisterTypeForNavigation<RegistroPage>();
+            Container.RegisterTypeForNavigation<VerificarDatosPage>();
         }
 
         protected override void OnStart()

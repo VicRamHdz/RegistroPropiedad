@@ -51,9 +51,10 @@ namespace RegistroPropiedad.ViewModels
         {
             try
             {
-                IsBusy = true;
-                //send an event to hockeyapp, monitoring the use of this piece of the app
-
+                if (!await CheckInternet())
+                {
+                    return;
+                }
                 if (Identificacion.IsNullOrEmpty())
                 {
                     await DisplayMessage("Info", "Introduzca el numero de indentificación");
@@ -64,10 +65,17 @@ namespace RegistroPropiedad.ViewModels
                     await DisplayMessage("Info", "Introduzca su contraseña");
                     return;
                 }
+
+                IsBusy = true;
                 BusyMessage = "Iniciando...";
                 var response = await _servicio.IniciarSesion(Identificacion, Contra);
                 if (response.IsSuccess)
                 {
+                    if (response.Data == null)
+                    {
+                        await DisplayMessage("Info", "Identificación no existe ó contraseña incorrecta");
+                        return;
+                    }
                     App.PerfilUsuarioInfo = response.Data;
                     await CacheHelper.UpdateCache("PerfilUsuarioInfo", App.PerfilUsuarioInfo);
                     Application.Current.MainPage = new PrincipalPage(_navigation, _dialogService);
