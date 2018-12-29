@@ -36,6 +36,7 @@ namespace RegistroPropiedad
             Container.RegisterTypeForNavigation<IniciarSesionPage>();
             Container.RegisterTypeForNavigation<RegistroPage>();
             Container.RegisterTypeForNavigation<VerificarDatosPage>();
+            Container.RegisterTypeForNavigation<CrearContraPage>();
         }
 
         protected override void OnStart()

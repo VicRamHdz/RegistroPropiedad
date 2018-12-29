@@ -46,7 +46,7 @@ namespace RegistroPropiedad.ViewModels
                 }
                 if (Cedula.IsNullOrEmpty())
                 {
-                    await DisplayMessage("Info", "Introduzca el numero de cédula");
+                    await DisplayMessage("Info", "Ingrese el numero de cédula");
                     return;
                 }
                 IsBusy = true;

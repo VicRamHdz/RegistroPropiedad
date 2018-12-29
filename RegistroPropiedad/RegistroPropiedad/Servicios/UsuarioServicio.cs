@@ -20,5 +20,11 @@ namespace RegistroPropiedad.Servicios
             return result;
         }
 
+        public async Task<ResponseResult<string>> CrearPerfilUsuario(PerfilUsuarioModelo perfil)
+        {
+            var endpoint = $"registro/usuario";
+            var result = await PostAsync<PerfilUsuarioModelo, string>(endpoint, perfil);
+            return result;
+        }
     }
 }

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Prism.Navigation;
 using Prism.Services;
+using RegistroPropiedad.Helper;
 using RegistroPropiedad.Modelos;
 using Xamarin.Forms;
 
@@ -40,6 +41,37 @@ namespace RegistroPropiedad.ViewModels
                 {
                     return;
                 }
+
+                if (Model.persona.nombres.IsNullOrEmpty())
+                {
+                    await DisplayMessage("Info", "Ingrese nombres");
+                    return;
+                }
+
+                if (Model.persona.apellidos.IsNullOrEmpty())
+                {
+                    await DisplayMessage("Info", "Ingrese apellidos");
+                    return;
+                }
+
+                if (Model.persona.direccion.IsNullOrEmpty())
+                {
+                    await DisplayMessage("Info", "Ingrese dirección");
+                    return;
+                }
+
+                if (Model.persona.telefono1.IsNullOrEmpty())
+                {
+                    await DisplayMessage("Info", "Ingrese celular");
+                    return;
+                }
+
+                if (Model.persona.correo1.IsNullOrEmpty())
+                {
+                    await DisplayMessage("Info", "Ingrese correo electrónico");
+                    return;
+                }
+
                 NavigationParameters parametros = new NavigationParameters();
                 parametros.Add("DatosUsuario", Model);
                 await _navigation.NavigateAsync("CrearContraPage", parametros);

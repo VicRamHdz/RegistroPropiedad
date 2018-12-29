@@ -17,22 +17,22 @@
                     Source = "LogoSquare.png"/>
                  <ScrollView>
                     <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                    <Label Text="Nombres" Style="{StaticResource NormalLabelStyle}" 
+                    <Label Text="Nombres *:" Style="{StaticResource NormalLabelStyle}" 
                            Margin="0,5,0,0" TextColor="{StaticResource PrimaryTextColor}"/>
                     <Entry Text="{Binding Model.persona.nombres}" TextColor="{StaticResource SecondaryTextColor}"
                            FontSize="18" HorizontalOptions="FillAndExpand" Keyboard="Text" HeightRequest="40" />
                     
-                    <Label Text="Apellidos" Style="{StaticResource NormalLabelStyle}" 
+                    <Label Text="Apellidos *:" Style="{StaticResource NormalLabelStyle}" 
                            Margin="0,5,0,0" TextColor="{StaticResource PrimaryTextColor}"/>
                     <Entry Text="{Binding Model.persona.apellidos}" TextColor="{StaticResource SecondaryTextColor}"
                            FontSize="18" HorizontalOptions="FillAndExpand" Keyboard="Text" HeightRequest="40" />
                     
-                    <Label Text="Dirección" Style="{StaticResource NormalLabelStyle}" 
+                    <Label Text="Dirección *:" Style="{StaticResource NormalLabelStyle}" 
                            Margin="0,5,0,0" TextColor="{StaticResource PrimaryTextColor}"/>
                     <Entry Text="{Binding Model.persona.direccion}" TextColor="{StaticResource SecondaryTextColor}"
                            FontSize="18" HorizontalOptions="FillAndExpand" Keyboard="Text" HeightRequest="40" />
                     
-                    <Label Text="Celular" Style="{StaticResource NormalLabelStyle}" 
+                    <Label Text="Celular *:" Style="{StaticResource NormalLabelStyle}" 
                            Margin="0,5,0,0" TextColor="{StaticResource PrimaryTextColor}"/>
                     <Entry Text="{Binding Model.persona.telefono1}" TextColor="{StaticResource SecondaryTextColor}"
                            FontSize="18" HorizontalOptions="FillAndExpand" Keyboard="Telephone" HeightRequest="40" />
@@ -42,7 +42,7 @@
                     <Entry Text="{Binding Model.persona.telefono2}" TextColor="{StaticResource SecondaryTextColor}"
                            FontSize="18" HorizontalOptions="FillAndExpand" Keyboard="Telephone" HeightRequest="40" />
                     
-                    <Label Text="Correo Electrónico" Style="{StaticResource NormalLabelStyle}" 
+                    <Label Text="Correo Electrónico *:" Style="{StaticResource NormalLabelStyle}" 
                            Margin="0,5,0,0" TextColor="{StaticResource PrimaryTextColor}"/>
                     <Entry Text="{Binding Model.persona.correo1}" TextColor="{StaticResource SecondaryTextColor}"
                            FontSize="18" HorizontalOptions="FillAndExpand" Keyboard="Email" HeightRequest="40" />
