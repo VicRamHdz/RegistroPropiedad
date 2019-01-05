@@ -43,6 +43,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\UbicacionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
@@ -94,6 +98,14 @@
       <DependentUpon>CrearContraPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CrearContraPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controles\CustomMap.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\UbicacionPage.xaml.cs">
+      <DependentUpon>UbicacionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Behaviors\MapBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Behaviors\BindableBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Modelos\LocationModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\UbicacionPageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Views\" />
@@ -102,5 +114,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)Modelos\" />
     <Folder Include="$(MSBuildThisFileDirectory)Helper\" />
     <Folder Include="$(MSBuildThisFileDirectory)Servicios\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Behaviors\" />
   </ItemGroup>
 </Project>

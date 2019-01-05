@@ -31,6 +31,8 @@ namespace RegistroPropiedad.ViewModels
                     {
                         if (IsBusy)
                         {
+                            if (string.IsNullOrEmpty(BusyMessage))
+                                BusyMessage = "Cargando...";
                             UserDialogs.Instance.ShowLoading(BusyMessage, Device.RuntimePlatform == Device.iOS ? MaskType.Black : MaskType.Clear);
                         }
                         else

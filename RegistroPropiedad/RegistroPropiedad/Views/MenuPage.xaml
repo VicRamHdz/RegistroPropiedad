@@ -34,7 +34,7 @@
                         <controls:MasterPageItem Title="Sugerencias/Quejas" IconSource="iSugerencia.svg" TargetType="{x:Type local:NoticiasPage}" />
                         <controls:MasterPageItem Title="Consulta" IconSource="iConsulta.svg" TargetType="{x:Type local:NoticiasPage}" />
                         <controls:MasterPageItem Title="QRScanner" IconSource="iCode.svg" TargetType="{x:Type local:NoticiasPage}" />
-                        <controls:MasterPageItem Title="Ubicación" IconSource="iLocation.svg" TargetType="{x:Type local:NoticiasPage}" />
+                        <controls:MasterPageItem Title="Ubicación" IconSource="iLocation.svg" TargetType="{x:Type local:UbicacionPage}" />
                         <controls:MasterPageItem Title="Contactanos" IconSource="iContact.svg" TargetType="{x:Type local:NoticiasPage}" />
                         <controls:MasterPageItem Title="Cerrar Sesión" IconSource="iSalir.svg" Action="Command" CommandName="CerrarSesionCommand" />
                     </x:Array>

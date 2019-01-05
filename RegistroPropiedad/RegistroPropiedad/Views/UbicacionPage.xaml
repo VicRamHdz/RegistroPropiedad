@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:RegistroPropiedad.CustomControls"
+             xmlns:behaviors="clr-namespace:RegistroPropiedad.Behaviors"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             Title="Ubicación"
+             x:Class="RegistroPropiedad.Views.UbicacionPage">
+    <ContentPage.Content>
+        <StackLayout>
+        <controls:CustomMap x:Name="MapView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <maps:Map.Behaviors>
+                <behaviors:MapBehavior ItemsSource="{Binding Items}"></behaviors:MapBehavior>
+            </maps:Map.Behaviors>
+        </controls:CustomMap>
+        <StackLayout Spacing="15"
+                     Padding="20"
+                     Orientation="Horizontal" 
+                     VerticalOptions="End" 
+                     HorizontalOptions="FillAndExpand">
+            <controls:CustomGradientButton
+                    HorizontalOptions="EndAndExpand"
+                    VerticalOptions="Center"
+                    HeightRequest="40"
+                    WidthRequest="90"
+                    Text="Calle" 
+                    CornerRadius="10" 
+                    TextColor="{StaticResource LightTextColor}"
+                    Style="{StaticResource BoldButtonStyle}"
+                    StartColor="{StaticResource ButtonStartBackColor}" 
+                    EndColor="{StaticResource ButtonEndBackColor}"
+                    Clicked="Street_OnClicked" />
+            <controls:CustomGradientButton 
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" 
+                    HeightRequest="40" 
+                    WidthRequest="90"
+                    CornerRadius="10"
+                    Text="Híbrido" 
+                    TextColor="{StaticResource LightTextColor}"
+                    Style="{StaticResource BoldButtonStyle}"
+                    StartColor="{StaticResource ButtonStartBackColor}" 
+                    EndColor="{StaticResource ButtonEndBackColor}"
+                    Clicked="Hybrid_OnClicked" />
+            <controls:CustomGradientButton 
+                    HorizontalOptions="StartAndExpand"
+                    VerticalOptions="Center"  
+                    HeightRequest="40" 
+                    WidthRequest="90"
+                    Text="Satélite" 
+                    CornerRadius="10"  
+                    TextColor="{StaticResource LightTextColor}"
+                    Style="{StaticResource BoldButtonStyle}"
+                    StartColor="{StaticResource ButtonStartBackColor}" 
+                    EndColor="{StaticResource ButtonEndBackColor}"
+                    Clicked="Satellite_OnClicked" />
+        </StackLayout>
+    </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

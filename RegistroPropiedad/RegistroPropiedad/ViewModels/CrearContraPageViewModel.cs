@@ -95,7 +95,7 @@ namespace RegistroPropiedad.ViewModels
                 }
 
                 IsBusy = true;
-                BusyMessage = "Creando perfil...";
+                //BusyMessage = "Creando perfil...";
                 Model.pass = Contra;
                 var response = await _servicio.CrearPerfilUsuario(Model);
                 if (response.IsSuccess)

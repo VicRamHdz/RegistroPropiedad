@@ -67,7 +67,7 @@ namespace RegistroPropiedad.ViewModels
                 }
 
                 IsBusy = true;
-                BusyMessage = "Iniciando...";
+                //BusyMessage = "Iniciando...";
                 var response = await _servicio.IniciarSesion(Identificacion, Contra);
                 if (response.IsSuccess)
                 {

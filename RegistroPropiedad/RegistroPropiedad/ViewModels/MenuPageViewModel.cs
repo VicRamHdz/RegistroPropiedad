@@ -34,7 +34,7 @@ namespace RegistroPropiedad.ViewModels
                 if (await DisplayYesNoMessage("Atención", "¿Está seguro que desea cerrar sesión?"))
                 {
                     IsBusy = true;
-                    BusyMessage = "Cerrando Sesión";
+                    //BusyMessage = "Cerrando Sesión";
                     //remove user secure data from local database
                     App.PerfilUsuarioInfo = null;
                     CacheHelper.Cache.InvalidateAll();

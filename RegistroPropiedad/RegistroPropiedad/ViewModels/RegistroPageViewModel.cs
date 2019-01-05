@@ -50,7 +50,7 @@ namespace RegistroPropiedad.ViewModels
                     return;
                 }
                 IsBusy = true;
-                BusyMessage = "Buscando Cédula...";
+                //BusyMessage = "Buscando Cédula...";
                 var response = await _servicio.ValidarExistenciaCedula(Cedula);
                 if (response.IsSuccess)
                 {
