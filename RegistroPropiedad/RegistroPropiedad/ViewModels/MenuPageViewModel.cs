@@ -1,9 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using FFImageLoading.Svg.Forms;
+using Plugin.Permissions;
+using Plugin.Permissions.Abstractions;
 using RegistroPropiedad.Helper;
 using RegistroPropiedad.Views;
 using Xamarin.Forms;
+using ZXing.Net.Mobile.Forms;
 
 namespace RegistroPropiedad.ViewModels
 {
@@ -52,5 +57,6 @@ namespace RegistroPropiedad.ViewModels
                 IsBusy = false;
             }
         }
+
     }
 }

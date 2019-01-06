@@ -22,6 +22,7 @@ namespace RegistroPropiedad.CustomControls
     public enum ActionType
     {
         OpenPage = 1,
-        Command = 2
+        Command = 2,
+        CommandView = 3
     }
 }

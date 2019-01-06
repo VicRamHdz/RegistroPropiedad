@@ -38,6 +38,8 @@ namespace RegistroPropiedad
             Container.RegisterTypeForNavigation<VerificarDatosPage>();
             Container.RegisterTypeForNavigation<CrearContraPage>();
             Container.RegisterTypeForNavigation<UbicacionPage>();
+            Container.RegisterTypeForNavigation<VerDocumentoPage>();
+            Container.RegisterTypeForNavigation<PublicidadPage>();
         }
 
         protected override void OnStart()

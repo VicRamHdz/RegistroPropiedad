@@ -47,6 +47,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\VerDocumentoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\PublicidadPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
@@ -106,6 +114,13 @@
     <Compile Include="$(MSBuildThisFileDirectory)Behaviors\BindableBehavior.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Modelos\LocationModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\UbicacionPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\VerDocumentoPage.xaml.cs">
+      <DependentUpon>VerDocumentoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\VerDocumentoPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\PublicidadPage.xaml.cs">
+      <DependentUpon>PublicidadPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Views\" />
