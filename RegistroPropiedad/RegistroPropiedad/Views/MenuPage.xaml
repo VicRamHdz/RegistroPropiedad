@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              xmlns:controls="clr-namespace:RegistroPropiedad.CustomControls"
              xmlns:local="clr-namespace:RegistroPropiedad.Views"
              x:Class="RegistroPropiedad.Views.MenuPage"
@@ -30,12 +31,12 @@
                         <controls:MasterPageItem Title="Inicio" IconSource="iHome.svg" TargetType="{x:Type local:PublicidadPage}" />
                         <controls:MasterPageItem Title="Perfil" IconSource="iPerfil.svg" TargetType="{x:Type local:PerfilPage}" />
                         <controls:MasterPageItem Title="Nuevo Trámite" IconSource="iTramite.svg" TargetType="{x:Type local:NoticiasPage}" />
-                        <controls:MasterPageItem Title="Mis Trámites" IconSource="iMTramite.svg" TargetType="{x:Type local:NoticiasPage}" />
-                        <controls:MasterPageItem Title="Sugerencias/Quejas" IconSource="iSugerencia.svg" TargetType="{x:Type local:NoticiasPage}" />
-                        <controls:MasterPageItem Title="Consulta" IconSource="iConsulta.svg" TargetType="{x:Type local:NoticiasPage}" />
-                        <controls:MasterPageItem Title="QRScanner" IconSource="iCode.svg" Action="CommandView" CommandName="QRCommand"/>
+                        <controls:MasterPageItem Title="Mis Trámites" IconSource="iMTramite.svg" TargetType="{x:Type local:MisTramitesPage}" />
+                        <controls:MasterPageItem Title="Sugerencias &amp; Quejas" IconSource="iSugerencia.svg" TargetType="{x:Type local:NoticiasPage}" />
+                        <!--<controls:MasterPageItem Title="Consulta" IconSource="iConsulta.svg" TargetType="{x:Type local:NoticiasPage}" />-->
+                        <controls:MasterPageItem Title="Verificar Certificado" IconSource="iCode.svg" Action="CommandView" CommandName="QRCommand"/>
                         <controls:MasterPageItem Title="Ubicación" IconSource="iLocation.svg" TargetType="{x:Type local:UbicacionPage}" />
-                        <controls:MasterPageItem Title="Contactanos" IconSource="iContact.svg" TargetType="{x:Type local:NoticiasPage}" />
+                        <controls:MasterPageItem Title="Contáctenos" IconSource="iContact.svg" TargetType="{x:Type local:ContactanosPage}" />
                         <controls:MasterPageItem Title="Cerrar Sesión" IconSource="iSalir.svg" Action="Command" CommandName="CerrarSesionCommand" />
                     </x:Array>
                 </ListView.ItemsSource>
@@ -52,7 +53,12 @@
                                     <RowDefinition Height="1"/>
                                 </Grid.RowDefinitions>
                                 <ffimageloadingsvg:SvgCachedImage Grid.Column="0" Grid.Row="0"
-                                Source = "{Binding IconSource, Converter={StaticResource SvgImageSourceConverter}}"/>
+                                Source = "{Binding IconSource, Converter={StaticResource SvgImageSourceConverter}}">
+                                    <ffimageloadingsvg:SvgCachedImage.Transformations>
+                                        <fftransformations:TintTransformation HexColor="#005da2" 
+                                                                     EnableSolidColor="true"/>
+                                    </ffimageloadingsvg:SvgCachedImage.Transformations>
+                                </ffimageloadingsvg:SvgCachedImage>
                                 <Label Grid.Column="1" Grid.Row="0" Text="{Binding Title}" VerticalTextAlignment="Center" />
                                 <BoxView HeightRequest="0.5" Grid.Row="1" Grid.ColumnSpan="2" Color="Gray" HorizontalOptions="FillAndExpand" />
                             </Grid>

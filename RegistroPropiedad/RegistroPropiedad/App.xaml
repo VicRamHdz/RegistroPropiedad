@@ -47,7 +47,8 @@
                         HorizontalOptions="FillAndExpand"/>
                   
                   <!--Header-->
-                  <Grid Grid.Column="0" Grid.Row="0" ColumnSpacing="0" HeightRequest="50" BackgroundColor="Transparent">
+                  <Grid Grid.Column="0" Grid.Row="0" ColumnSpacing="0" HeightRequest="50" 
+                        BindingContext="{TemplateBinding BindingContext}" IsVisible="{Binding DisplayNavigationBar}" BackgroundColor="Transparent">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="10*"/>
                         <ColumnDefinition Width="80*"/>

@@ -15,12 +15,12 @@
                 <behaviors:MapBehavior ItemsSource="{Binding Items}"></behaviors:MapBehavior>
             </maps:Map.Behaviors>
         </controls:CustomMap>
-        <StackLayout Spacing="15"
+        <!--<StackLayout Spacing="15"
                      Padding="20"
                      Orientation="Horizontal" 
                      VerticalOptions="End" 
-                     HorizontalOptions="FillAndExpand">
-            <controls:CustomGradientButton
+                     HorizontalOptions="FillAndExpand">-->
+            <!--<controls:CustomGradientButton
                     HorizontalOptions="EndAndExpand"
                     VerticalOptions="Center"
                     HeightRequest="40"
@@ -55,8 +55,8 @@
                     Style="{StaticResource BoldButtonStyle}"
                     StartColor="{StaticResource ButtonStartBackColor}" 
                     EndColor="{StaticResource ButtonEndBackColor}"
-                    Clicked="Satellite_OnClicked" />
-        </StackLayout>
+                    Clicked="Satellite_OnClicked" />-->
+        <!--</StackLayout>-->
     </StackLayout>
     </ContentPage.Content>
 </ContentPage>

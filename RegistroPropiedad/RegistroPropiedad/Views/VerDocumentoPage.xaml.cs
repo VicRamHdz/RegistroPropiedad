@@ -9,14 +9,10 @@ namespace RegistroPropiedad.Views
     {
         string Url;
 
-        public VerDocumentoPage(string Url) : base()
-        {
-            this.Url = Url;
-        }
-
-        public VerDocumentoPage()
+        public VerDocumentoPage(string Url)
         {
             InitializeComponent();
+            this.Url = Url;
         }
 
         protected override void OnAppearing()

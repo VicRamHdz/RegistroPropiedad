@@ -55,6 +55,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\MisTramitesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\ContactanosPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
@@ -121,6 +129,19 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\PublicidadPage.xaml.cs">
       <DependentUpon>PublicidadPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\MisTramitesPage.xaml.cs">
+      <DependentUpon>MisTramitesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MisTramitesPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Modelos\TramitesModelo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Servicios\TramitesServicio.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controles\CustomFrame.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Enumerations.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\DateTimeHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ContactanosPage.xaml.cs">
+      <DependentUpon>ContactanosPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ContactanosPageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Views\" />

@@ -223,6 +223,8 @@ namespace RegistroPropiedad.Views
                     };
 
                     await Navigation.PushModalAsync(scanPage);
+                    masterPage.listViewMenu.SelectedItem = null;
+                    IsPresented = false;
                 }
             }
         }

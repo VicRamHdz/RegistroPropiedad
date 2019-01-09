@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:controls="clr-namespace:RegistroPropiedad.CustomControls"
+             x:Class="RegistroPropiedad.Views.MisTramitesPage"
+             Title="Mis Trámites">
+    <ContentPage.Resources>
+        <ffimageloadingsvg:SvgImageSourceConverter x:Key="SvgImageSourceConverter"></ffimageloadingsvg:SvgImageSourceConverter>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView ItemsSource="{Binding MisTramites}" 
+                      VerticalOptions="FillAndExpand"
+                      HorizontalOptions="FillAndExpand"
+                      ItemAppearing="ListItemAppearing"
+                      SeparatorVisibility="None" 
+                      RowHeight="130">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid RowSpacing="0" Margin="7" HorizontalOptions="FillAndExpand">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <controls:CustomFrame
+                                CornerRadius="8" 
+                                Padding="10"
+                                StartColor="White" 
+                                EndColor="White" 
+                                HasBorder="true" 
+                                StrokeThickness="1" 
+                                HasShadow="true" 
+                                ShadowColor="Gray"
+                                OutlineColor="#CCCCCC"
+                                HeightRequest="120" 
+                                HorizontalOptions="FillAndExpand">
+                                
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="40"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding titulotramite}" Style="{StaticResource BoldLabelStyle}" 
+                                           TextColor="{StaticResource PrimaryTextColor}" Grid.Row="0" Grid.ColumnSpan="3" Margin="15,0,0,0"/>
+                                    
+                                    <ffimageloadingsvg:SvgCachedImage Grid.Column="0" Grid.Row="1" WidthRequest="40" HeightRequest="40"
+                                    Source = "{Binding fechainicialicon, Converter={StaticResource SvgImageSourceConverter}}"/>
+                                    <Label Text="{Binding fechainicial}" Style="{StaticResource BoldLabelStyle}" TextColor="#8c8d8d" Grid.Row="1" Grid.Column="1"/>
+                                    
+                                    <ffimageloadingsvg:SvgCachedImage Grid.Column="0" Grid.Row="2" WidthRequest="40" HeightRequest="40"
+                                    Source = "{Binding fechafinalicon, Converter={StaticResource SvgImageSourceConverter}}"/>
+                                    <Label Text="{Binding fechafinal}" Style="{StaticResource BoldLabelStyle}" TextColor="#8c8d8d" Grid.Row="2" Grid.Column="1"/>
+                                        
+                                    <ffimageloadingsvg:SvgCachedImage Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" WidthRequest="25" HeightRequest="25"
+                                    HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFit"
+                                    Source = "iVerTramite.svg">
+                                        <ffimageloadingsvg:SvgCachedImage.Transformations>
+                                            <fftransformations:TintTransformation HexColor="#ff0000" 
+                                                                         EnableSolidColor="true"/>
+                                        </ffimageloadingsvg:SvgCachedImage.Transformations>
+                                    </ffimageloadingsvg:SvgCachedImage>
+                                </Grid>
+                                </controls:CustomFrame>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

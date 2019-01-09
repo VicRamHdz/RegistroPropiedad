@@ -71,6 +71,13 @@ namespace RegistroPropiedad.ViewModels
             }
         }
 
+        private bool _DisplayNavigationBar;
+        public bool DisplayNavigationBar
+        {
+            get { return _DisplayNavigationBar; }
+            set { SetProperty(ref _DisplayNavigationBar, value); }
+        }
+
         internal INavigationService _navigation { get; set; }
         internal IPageDialogService _dialogService { get; set; }
 
@@ -80,6 +87,7 @@ namespace RegistroPropiedad.ViewModels
         public VistaModeloBase()
         {
             DisplayLoading = true;
+            DisplayNavigationBar = true;
         }
 
         public virtual void OnNavigatedFrom(NavigationParameters parameters)

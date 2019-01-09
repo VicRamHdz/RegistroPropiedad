@@ -40,6 +40,8 @@ namespace RegistroPropiedad
             Container.RegisterTypeForNavigation<UbicacionPage>();
             Container.RegisterTypeForNavigation<VerDocumentoPage>();
             Container.RegisterTypeForNavigation<PublicidadPage>();
+            Container.RegisterTypeForNavigation<MisTramitesPage>();
+            Container.RegisterTypeForNavigation<ContactanosPage>();
         }
 
         protected override void OnStart()

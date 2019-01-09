@@ -25,6 +25,9 @@
                     <fftransformations:TintTransformation HexColor="#005da2" 
                                                  EnableSolidColor="true"/>
                 </ffimageloadingsvg:SvgCachedImage.Transformations>
+                <ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ContactanosCommand}"/>
+                </ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
             </ffimageloadingsvg:SvgCachedImage>
             
             <ffimageloading:CachedImage WidthRequest="250" VerticalOptions="Center"
