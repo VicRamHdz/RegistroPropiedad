@@ -13,7 +13,8 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
-            <ListView ItemsSource="{Binding MisTramites}" 
+            <ListView x:Name="listView"
+                      ItemsSource="{Binding MisTramites}" 
                       VerticalOptions="FillAndExpand"
                       HorizontalOptions="FillAndExpand"
                       ItemAppearing="ListItemAppearing"
@@ -66,6 +67,10 @@
                                     </ffimageloadingsvg:SvgCachedImage>
                                 </Grid>
                                 </controls:CustomFrame>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.VerTramiteCommand, Source = {x:Reference listView}}"
+                                                            CommandParameter="{Binding}"/>
+                                </Grid.GestureRecognizers>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

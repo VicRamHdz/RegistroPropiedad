@@ -12,6 +12,7 @@ namespace RegistroPropiedad.ViewModels
     public class ContactanosPageViewModel : VistaModeloBase
     {
         public ICommand RegresarCommand { get; set; }
+        public ICommand AbrirPaginaWebCommand { get; set; }
         public ICommand EnviarCorreoCommand { get; set; }
         public ICommand LlamarCommand { get; set; }
         public ICommand EnviarMensajeCommand { get; set; }
@@ -21,10 +22,23 @@ namespace RegistroPropiedad.ViewModels
             _navigation = navigationService;
             _dialogService = dialogService;
             RegresarCommand = new Command(async () => { await OnRegresar(); });
+            AbrirPaginaWebCommand = new Command(async () => { await OnAbrirPaginaWeb(); });
             EnviarCorreoCommand = new Command(async () => { await OnEnviarCorreo(); });
             LlamarCommand = new Command(async () => { await OnLlamar(); });
             EnviarMensajeCommand = new Command(async () => { await OnEnviarMensaje(); });
             DisplayNavigationBar = false;
+        }
+
+        private async Task OnAbrirPaginaWeb()
+        {
+            try
+            {
+                Device.OpenUri(new Uri("http://www.registropropiedadportoviejo.gob.ec/regpp/"));
+            }
+            catch (Exception ex)
+            {
+                await DisplayError(ex);
+            }
         }
 
         private async Task OnEnviarCorreo()
@@ -35,7 +49,7 @@ namespace RegistroPropiedad.ViewModels
                 Tos.Add("epmregistrodelapropiedadportoviejo@rpp.gob.ec");
                 var message = new EmailMessage
                 {
-                    Subject = "",
+                    Subject = $"Solicitud de Contacto",
                     To = Tos
                 };
                 await Email.ComposeAsync(message);

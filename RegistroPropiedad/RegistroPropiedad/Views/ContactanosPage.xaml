@@ -31,8 +31,50 @@
                     <RowDefinition Height="1"/>
                     <RowDefinition Height="45"/>
                     <RowDefinition Height="1"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="1"/>
                 </Grid.RowDefinitions>
+                
                 <ffimageloadingsvg:SvgCachedImage Grid.Column="0" Grid.Row="0" 
+                        WidthRequest="22" HeightRequest="22" Aspect="AspectFit"
+                        Source = "iCasa.svg" VerticalOptions="Center">
+                </ffimageloadingsvg:SvgCachedImage>
+                <Label Text="Avenida América y Reales Tamarindos, Portoviejo." VerticalTextAlignment="Center"
+                       Style="{StaticResource BoldLabelStyle}" FontSize="16"
+                       Grid.Row="0" Grid.Column="1">
+                </Label>
+                <BoxView HeightRequest="1" Color="Gray" Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand"/>
+                
+                 <ffimageloadingsvg:SvgCachedImage Grid.Column="0" Grid.Row="2" 
+                        WidthRequest="22" HeightRequest="22" Aspect="AspectFit"
+                        Source = "iPaginaContacto.svg" VerticalOptions="Center">
+                </ffimageloadingsvg:SvgCachedImage>
+                <Label Text="www.registropropiedadportoviejo.gob.ec/regpp" VerticalTextAlignment="Center"
+                       Style="{StaticResource BoldLabelStyle}" FontSize="16"
+                       Grid.Row="2" Grid.Column="1">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding AbrirPaginaWebCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <BoxView HeightRequest="1" Color="Gray" Grid.Row="3" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand"/>
+                
+                 <ffimageloadingsvg:SvgCachedImage Grid.Column="0" Grid.Row="4" 
+                        WidthRequest="11" HeightRequest="11" Aspect="AspectFit"
+                        Source = "iCallAction.svg" VerticalOptions="Center">
+                    <ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LlamarCommand}"/>
+                    </ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+                </ffimageloadingsvg:SvgCachedImage>
+                <Label Text="Número Telefónico" VerticalTextAlignment="Center"
+                       Style="{StaticResource BoldLabelStyle}" FontSize="16" 
+                       Grid.Row="4" Grid.Column="1">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LlamarCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <BoxView HeightRequest="1" Color="Gray" Grid.Row="5" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand"/>
+               
+                <ffimageloadingsvg:SvgCachedImage Grid.Column="0" Grid.Row="6" 
                         WidthRequest="22" HeightRequest="22" Aspect="AspectFit"
                         Source = "iEmail.svg" VerticalOptions="Center">
                     <ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
@@ -40,46 +82,14 @@
                     </ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
                 </ffimageloadingsvg:SvgCachedImage>
                 <Label Text="Correo Electrónico" VerticalTextAlignment="Center"
-                       Style="{StaticResource BoldLabelStyle}" 
-                       Grid.Row="0" Grid.Column="1">
+                       Style="{StaticResource BoldLabelStyle}" FontSize="16"
+                       Grid.Row="6" Grid.Column="1">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding EnviarCorreoCommand}"/>
                     </Label.GestureRecognizers>
                 </Label>
-                <BoxView HeightRequest="1" Color="Gray" Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand"/>
+                <BoxView HeightRequest="1" Color="Gray" Grid.Row="7" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand"/>
                 
-                <ffimageloadingsvg:SvgCachedImage Grid.Column="0" Grid.Row="2" 
-                        WidthRequest="13" HeightRequest="13" Aspect="AspectFit"
-                        Source = "iCallAction.svg" VerticalOptions="Center">
-                    <ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding LlamarCommand}"/>
-                    </ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
-                </ffimageloadingsvg:SvgCachedImage>
-                <Label Text="Número Telefónico" VerticalTextAlignment="Center"
-                       Style="{StaticResource BoldLabelStyle}" 
-                       Grid.Row="2" Grid.Column="1">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding LlamarCommand}"/>
-                    </Label.GestureRecognizers>
-                </Label>
-                <BoxView HeightRequest="1" Color="Gray" Grid.Row="3" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand"/>
-                
-                <ffimageloadingsvg:SvgCachedImage Grid.Column="0" Grid.Row="4" 
-                        WidthRequest="20" HeightRequest="20" Aspect="AspectFit"
-                        Source = "iSms.svg" VerticalOptions="Center">
-                    <ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding EnviarMensajeCommand}"/>
-                    </ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
-                </ffimageloadingsvg:SvgCachedImage>
-                <Label Text="Mensaje" VerticalTextAlignment="Center"
-                       Style="{StaticResource BoldLabelStyle}" 
-                       Grid.Row="4" Grid.Column="1">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding EnviarMensajeCommand}"/>
-                    </Label.GestureRecognizers>
-                </Label>
-                <BoxView HeightRequest="1" Color="Gray" Grid.Row="5" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand"/>
-
             </Grid>
         </StackLayout>
     </ContentPage.Content>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms" 
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             Title="Estado del Trámite"
+             ControlTemplate="{StaticResource CustomNavigationTemplate}"
+             x:Class="RegistroPropiedad.Views.TramiteDetallePage">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Margin="15,40,15,0">
+            <!--<Label Text="Progreso del Trámite" Style="{StaticResource BoldLabelStyle}" 
+                   TextColor="{StaticResource PrimaryTextColor}" FontSize="Large" 
+                   HorizontalTextAlignment="Center" />-->
+            <microcharts:ChartView x:Name="chartView" 
+                                   HorizontalOptions="CenterAndExpand" 
+                                   HeightRequest="280" 
+                                   WidthRequest="400" />
+            
+            <Label Text="Numero de Trámite:" Style="{StaticResource BoldLabelStyle}" 
+                   TextColor="Gray" FontSize="16" 
+                   HorizontalTextAlignment="Start" />
+            <Label Text="{Binding Model.numeroTramite}" Style="{StaticResource BoldLabelStyle}" 
+                   TextColor="{StaticResource SecondaryTextColor}" FontSize="18" 
+                   HorizontalTextAlignment="Start" />
+            
+            <Label Text="Datos del Propietario:" Style="{StaticResource BoldLabelStyle}" 
+                   TextColor="Gray" FontSize="16" 
+                   HorizontalTextAlignment="Start" />
+            <Label Text="{Binding Model.propnombrecompleto}" Style="{StaticResource BoldLabelStyle}" 
+                   TextColor="{StaticResource SecondaryTextColor}" FontSize="18" 
+                   HorizontalTextAlignment="Start" />
+            
+            <Label Text="Fecha de Ingreso:" Style="{StaticResource BoldLabelStyle}" 
+                   TextColor="Gray" FontSize="16" 
+                   HorizontalTextAlignment="Start" />
+            <Label Text="{Binding Model.fechainicial}" Style="{StaticResource BoldLabelStyle}" 
+                   TextColor="{StaticResource SecondaryTextColor}" FontSize="18" 
+                   HorizontalTextAlignment="Start" />
+            
+            <Label Text="Fecha Finalización:" Style="{StaticResource BoldLabelStyle}" 
+                   TextColor="Gray" FontSize="16" 
+                   HorizontalTextAlignment="Start" />
+            <Label Text="{Binding Model.fechafinal}" Style="{StaticResource BoldLabelStyle}" 
+                   TextColor="{StaticResource SecondaryTextColor}" FontSize="18" 
+                   HorizontalTextAlignment="Start" />
+            
+            <Label Text="Motivo de Solicitud:" Style="{StaticResource BoldLabelStyle}" 
+                   TextColor="Gray" FontSize="16" 
+                   HorizontalTextAlignment="Start" />
+            <Label Text="{Binding Model.motivosolicitudtitulo}" Style="{StaticResource BoldLabelStyle}" 
+                   TextColor="{StaticResource SecondaryTextColor}" FontSize="18" 
+                   HorizontalTextAlignment="Start" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

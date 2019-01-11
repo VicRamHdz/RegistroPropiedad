@@ -61,10 +61,27 @@ namespace RegistroPropiedad.Modelos
         public string fechaSolicitudLong { get; set; }
         public string fechaInscripcionLong { get; set; }
         public string titulotramite { get { return $"# {numeroTramite} - { Enumerations.GetEnumDescription((TramiteDescripcion)motivo_solicitud)}"; } }
+        public string propnombrecompleto { get { return $"{prop_nombres} {prop_apellidos}"; } }
         public string fechainicial { get { return fechaIngeso.ToDateTime().ToCustomDateTime(); } }
-        public string fechainicialicon { get { return fechaEntrega.ToDateTime() < DateTime.Now ? "iTramiteTerminado.svg" : "iTramiteProgreso.svg"; } }
+        public string fechainicialicon { get { return fechaEntrega.ToDateTime() < DateTime.Now ? "iCalendarioFin.svg" : "iCalendario.svg"; } }
         public string fechafinal { get { return fechaEntrega.ToDateTime().ToCustomDateTime(); } }
-        public string fechafinalicon { get { return fechaEntrega.ToDateTime() < DateTime.Now ? "iTramiteTerminado.svg" : "iTramiteProgreso.svg"; } }
+        public string fechafinalicon { get { return fechaEntrega.ToDateTime() < DateTime.Now ? "iCalendarioFin.svg" : "iCalendarioProceso.svg"; } }
+        public string motivosolicitudtitulo { get { return $"{Enumerations.GetEnumDescription((TramiteTipoSolicitud)tipo_solicitud)} {Enumerations.GetEnumDescription((TramiteDescripcion)motivo_solicitud)}"; } }
+        public int porcentajeavance { get { return calcularPorcentaje(); } }
+
+        private int calcularPorcentaje()
+        {
+            if (fechaEntrega.ToDateTime() < DateTime.Now)
+            {
+                return 100;
+            }
+            else
+            {
+                var diasTotales = int.Parse(Math.Round((fechaEntrega.ToDateTime() - fechaIngeso.ToDateTime()).TotalDays).ToString());
+                var diasProgreso = int.Parse(Math.Round((DateTime.Now - fechaIngeso.ToDateTime()).TotalDays).ToString());
+                return diasProgreso * 100 / diasTotales;
+            }
+        }
     }
 
     public enum TramiteDescripcion
@@ -83,5 +100,15 @@ namespace RegistroPropiedad.Modelos
         TramiteCNEL = 6,
         [Description("TRÁMITE OTROS(Especifique)")]
         TramiteOtros = 7
+    }
+
+    public enum TramiteTipoSolicitud
+    {
+        [Description("SOLICITUD DE CERTIFICADO DE HISTORIA DE DOMINIO")]
+        HistoriaDominio = 1,
+        [Description("SOLICITUD DE CERTIFICADO DE BÚQUEDA DE BIENES RAÍCES")]
+        BusquedaBienesRaices = 2,
+        [Description("SOLICITUD DE CERTIFICADO GENERAL")]
+        General = 3
     }
 }

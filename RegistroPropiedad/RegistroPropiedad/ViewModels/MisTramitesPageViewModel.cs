@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Prism.Navigation;
 using Prism.Services;
 using RegistroPropiedad.Modelos;
 using RegistroPropiedad.Servicios;
+using Xamarin.Forms;
 
 namespace RegistroPropiedad.ViewModels
 {
@@ -27,10 +29,13 @@ namespace RegistroPropiedad.ViewModels
 
         private TramitesServicio _servicio;
 
+        public ICommand VerTramiteCommand { get; set; }
+
         public MisTramitesPageViewModel(INavigationService navigationService, IPageDialogService dialogService)
         {
             _navigation = navigationService;
             _dialogService = dialogService;
+            VerTramiteCommand = new Command(async (p) => { await OnVerTramite(p as TramitesModelo); });
             _servicio = new TramitesServicio();
             Pagina = 0;
             CargarTramites(0);
@@ -68,6 +73,20 @@ namespace RegistroPropiedad.ViewModels
                 {
                     await DisplayApiMessage(response);
                 }
+            }
+            catch (Exception ex)
+            {
+                await DisplayError(ex);
+            }
+        }
+
+        private async Task OnVerTramite(TramitesModelo tramite)
+        {
+            try
+            {
+                NavigationParameters parametros = new NavigationParameters();
+                parametros.Add("Tramite", tramite);
+                await _navigation.NavigateAsync("TramiteDetallePage", parametros);
             }
             catch (Exception ex)
             {
