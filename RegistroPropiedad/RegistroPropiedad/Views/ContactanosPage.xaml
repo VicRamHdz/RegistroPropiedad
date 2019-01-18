@@ -49,7 +49,7 @@
                         WidthRequest="22" HeightRequest="22" Aspect="AspectFit"
                         Source = "iPaginaContacto.svg" VerticalOptions="Center">
                 </ffimageloadingsvg:SvgCachedImage>
-                <Label Text="www.registropropiedadportoviejo.gob.ec/regpp" VerticalTextAlignment="Center"
+                <Label Text="Sitio Web" VerticalTextAlignment="Center"
                        Style="{StaticResource BoldLabelStyle}" FontSize="16"
                        Grid.Row="2" Grid.Column="1">
                     <Label.GestureRecognizers>

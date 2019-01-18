@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:controls="clr-namespace:RegistroPropiedad.CustomControls"
+             Title="Sugerencias &amp; Comentarios"
+             x:Class="RegistroPropiedad.Views.SugerenciasComentariosPage">
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <Label Text="Nombre:" VerticalTextAlignment="Center"
+                       Style="{StaticResource BoldLabelStyle}" FontSize="16"/>
+            <Entry Text="{Binding Nombre}" TextColor="{StaticResource SecondaryTextColor}"
+                       FontSize="18" HorizontalOptions="FillAndExpand" Keyboard="Text" HeightRequest="40"/>
+            
+            <Label Text="Su Email:" VerticalTextAlignment="Center"
+                       Style="{StaticResource BoldLabelStyle}" FontSize="16"/>
+            <Entry Text="{Binding Correo}" TextColor="{StaticResource SecondaryTextColor}"
+                       FontSize="18" HorizontalOptions="FillAndExpand" Keyboard="Email" HeightRequest="40"/>
+            
+            <Label Text="Mensaje:" VerticalTextAlignment="Center"
+                       Style="{StaticResource BoldLabelStyle}" FontSize="16"/>
+            <StackLayout Orientation="Vertical" BackgroundColor="White">
+                <StackLayout Orientation="Vertical" BackgroundColor="LightGray" Padding="1">
+                    <Editor Text="{Binding Mensaje}" TextColor="{StaticResource SecondaryTextColor}"
+                       FontSize="18" HorizontalOptions="FillAndExpand" Keyboard="Text" HeightRequest="120"/>
+                </StackLayout>
+            </StackLayout>
+            <controls:CustomGradientButton 
+                        Text="Enviar" 
+                        Style="{StaticResource BoldButtonStyle}"
+                        TextColor="{StaticResource LightTextColor}"
+                        StartColor="{StaticResource ButtonStartBackColor}" 
+                        EndColor="{StaticResource ButtonEndBackColor}"
+                        HeightRequest="50" HorizontalOptions="FillAndExpand" 
+                        Command="{Binding EnviarCommand}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

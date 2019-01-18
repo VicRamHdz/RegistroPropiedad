@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:controls="clr-namespace:RegistroPropiedad.CustomControls"
+             Title="Nuevo Trámite"
+             ControlTemplate="{StaticResource CustomNavigationTemplate}"
+             x:Class="RegistroPropiedad.Views.NuevoTramitePagoPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="20,55,20,20" Orientation="Vertical" Spacing="10"
+                    VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <ffimageloading:CachedImage VerticalOptions="Start"
+                    HorizontalOptions="FillAndExpand" Margin="10"
+                    DownsampleToViewSize="true" Aspect="AspectFit"
+                    Source = "LogoBand.png"/>
+                
+                <Label Text="En base a lo dispuesto en el párrafo 5 del Art. 6 de la ley del Sistema Nacional del Registro de Datos Públicos, declaro que el presente certificado lo solicito para:" HorizontalTextAlignment="Start"
+                   Style="{StaticResource BoldLabelStyle}" TextColor="Gray" FontSize="15" />
+                
+                <Label Text="Motivo:*" HorizontalTextAlignment="Start"
+                   Style="{StaticResource BoldLabelStyle}" TextColor="Gray" FontSize="15" />
+                
+                <Picker HorizontalOptions="FillAndExpand" ItemsSource="{Binding Motivos}" HeightRequest="40"/>
+          
+                <Label Text=".. y éste será el único uso legal que le dé al mismo" HorizontalTextAlignment="Start"
+                   Style="{StaticResource BoldLabelStyle}" TextColor="Gray" FontSize="15" />
+                
+                <Label Text="Datos Factura" HorizontalTextAlignment="Center"
+                   Style="{StaticResource BoldLabelStyle}" TextColor="Black" FontSize="17" />
+                
+                <StackLayout Orientation="Horizontal" Margin="0,20" HeightRequest="30" Spacing="10">
+                    <Label Text="Factura a nombre del mismo solicitante" VerticalTextAlignment="Center" 
+                           HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" Style="{StaticResource BoldLabelStyle}" TextColor="Black" FontSize="15" />
+                    <Switch IsToggled="{Binding FacturaSolicitante}" 
+                            HorizontalOptions="End" WidthRequest="60" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer 
+                            Command="{Binding FacturaSolicitanteCommand}" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                
+                <Label Text="Cédula/R.U.C:*" HorizontalTextAlignment="Start" IsVisible="{Binding NoFacturaSolicitante}"
+                   Style="{StaticResource BoldLabelStyle}" TextColor="Gray" FontSize="15" />
+            
+                <StackLayout Orientation="Horizontal" Spacing="3" HeightRequest="40" IsVisible="{Binding NoFacturaSolicitante}">
+                    <Entry TextColor="{StaticResource SecondaryTextColor}"
+                           FontSize="18" HorizontalOptions="FillAndExpand" 
+                           Keyboard="Text" HeightRequest="40" Text="{Binding Modelo.Cedula}"/>
+                    <ffimageloadingsvg:SvgCachedImage WidthRequest="40" HeightRequest="40"
+                            Source = "iBuscar.svg">
+                        <ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding BuscarCedulaCommand}"/>
+                        </ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+                    </ffimageloadingsvg:SvgCachedImage>
+                </StackLayout>
+                
+                <Label Text="Nombres:*" HorizontalTextAlignment="Start" IsVisible="{Binding NoFacturaSolicitante}"
+                   Style="{StaticResource BoldLabelStyle}" TextColor="Gray" FontSize="15" />
+            
+                <Entry TextColor="{StaticResource SecondaryTextColor}"
+                       FontSize="18" HorizontalOptions="FillAndExpand"  Text="{Binding Modelo.Nombres}"
+                       Keyboard="Text" HeightRequest="40" IsVisible="{Binding NoFacturaSolicitante}"/>
+           
+                <Label Text="Dirección:*" HorizontalTextAlignment="Start" IsVisible="{Binding NoFacturaSolicitante}"
+                   Style="{StaticResource BoldLabelStyle}" TextColor="Gray" FontSize="15" />
+            
+                <Entry TextColor="{StaticResource SecondaryTextColor}"
+                       FontSize="18" HorizontalOptions="FillAndExpand"  Text="{Binding Modelo.Direccion}"
+                       Keyboard="Text" HeightRequest="40" IsVisible="{Binding NoFacturaSolicitante}"/>
+           
+                <Label Text="Correo Electrónico:*" HorizontalTextAlignment="Start" IsVisible="{Binding NoFacturaSolicitante}"
+                   Style="{StaticResource BoldLabelStyle}" TextColor="Gray" FontSize="15" />
+            
+                <Entry TextColor="{StaticResource SecondaryTextColor}"
+                       FontSize="18" HorizontalOptions="FillAndExpand"  Text="{Binding Modelo.CorreoElectronico}"
+                       Keyboard="Text" HeightRequest="40" IsVisible="{Binding NoFacturaSolicitante}"/>
+           
+                <Label Text="Celular:*" HorizontalTextAlignment="Start" IsVisible="{Binding NoFacturaSolicitante}"
+                   Style="{StaticResource BoldLabelStyle}" TextColor="Gray" FontSize="15" />
+            
+                <Entry TextColor="{StaticResource SecondaryTextColor}"
+                       FontSize="18" HorizontalOptions="FillAndExpand" Text="{Binding Modelo.Celular}"
+                       Keyboard="Text" HeightRequest="40" IsVisible="{Binding NoFacturaSolicitante}"/>
+           
+                <controls:CustomGradientButton 
+                        Text="Registrar Solicitud" Margin="0,20"
+                        Style="{StaticResource BoldButtonStyle}"
+                        TextColor="{StaticResource LightTextColor}"
+                        StartColor="{StaticResource ButtonStartBackColor}" 
+                        EndColor="{StaticResource ButtonEndBackColor}"
+                        HeightRequest="50" HorizontalOptions="FillAndExpand" 
+                        Command="{Binding RegistrarCommand}" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

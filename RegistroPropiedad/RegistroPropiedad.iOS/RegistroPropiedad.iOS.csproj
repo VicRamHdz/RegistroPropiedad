@@ -237,6 +237,7 @@
     <BundleResource Include="Resources\iCalendarioFin.svg" />
     <BundleResource Include="Resources\iCalendarioProceso.svg" />
     <BundleResource Include="Resources\iPaginaContacto.svg" />
+    <BundleResource Include="Resources\iBuscar.svg" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Renderers\" />

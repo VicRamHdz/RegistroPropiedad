@@ -43,6 +43,9 @@ namespace RegistroPropiedad
             Container.RegisterTypeForNavigation<MisTramitesPage>();
             Container.RegisterTypeForNavigation<ContactanosPage>();
             Container.RegisterTypeForNavigation<TramiteDetallePage>();
+            Container.RegisterTypeForNavigation<SugerenciasComentariosPage>();
+            Container.RegisterTypeForNavigation<NuevoTramitePage>();
+            Container.RegisterTypeForNavigation<NuevoTramitePagoPage>();
         }
 
         protected override void OnStart()

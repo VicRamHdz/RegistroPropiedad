@@ -14,5 +14,12 @@ namespace RegistroPropiedad.Servicios
             var result = await GetAsync<List<TramitesModelo>>(endpoint);
             return result;
         }
+
+        public async Task<ResponseResult<CedulaModelo>> BuscarCedula(string cedula)
+        {
+            var endpoint = $"registro/persona/cedula/{cedula}";
+            var result = await GetAsync<CedulaModelo>(endpoint);
+            return result;
+        }
     }
 }

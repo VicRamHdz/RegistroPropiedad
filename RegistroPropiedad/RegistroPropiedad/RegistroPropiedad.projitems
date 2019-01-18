@@ -67,6 +67,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\SugerenciasComentariosPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\NuevoTramitePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\NuevoTramitePagoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
@@ -150,6 +162,20 @@
       <DependentUpon>TramiteDetallePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\TramiteDetallePageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\SugerenciasComentariosPage.xaml.cs">
+      <DependentUpon>SugerenciasComentariosPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\SugerenciasComentariosPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\NuevoTramitePage.xaml.cs">
+      <DependentUpon>NuevoTramitePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\NuevoTramitePageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Modelos\TramiteDetalleModelo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\NuevoTramitePagoPage.xaml.cs">
+      <DependentUpon>NuevoTramitePagoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\NuevoTramitePagoPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Modelos\CedulaModelo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Views\" />

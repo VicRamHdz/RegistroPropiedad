@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:controls="clr-namespace:RegistroPropiedad.CustomControls"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             Title="Nuevo Trámite"
+             x:Class="RegistroPropiedad.Views.NuevoTramitePage">
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout Margin="20" Orientation="Vertical"
+                    VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                    >
+            <ffimageloading:CachedImage VerticalOptions="Start"
+                HorizontalOptions="FillAndExpand" Margin="10"
+                DownsampleToViewSize="true" Aspect="AspectFit"
+                Source = "LogoBand.png"/>
+                
+            <Label Text="Tipo de Certificado que se Solicita:*" HorizontalTextAlignment="Start"
+                   Style="{StaticResource BoldLabelStyle}" TextColor="Gray" FontSize="15" />
+            
+            <Picker ItemsSource="{Binding TiposTramite}" SelectedItem="{Binding TipoTramiteSeleccionado}"
+                    HorizontalOptions="FillAndExpand" HeightRequest="40" />
+            
+            <Label Text="Solicito CERTIFICADO sobre la propiedad que se detalla del ciudadano" HorizontalTextAlignment="Start"
+                   Style="{StaticResource BoldLabelStyle}" TextColor="Gray" FontSize="12" />
+            
+            <Label Text="Tipo de Persona:*" HorizontalTextAlignment="Start"
+                   Style="{StaticResource BoldLabelStyle}" TextColor="Gray" FontSize="15" />
+            
+            <Picker ItemsSource="{Binding TiposPersona}" SelectedItem="{Binding TipoPersonaSeleccionado}" HorizontalOptions="FillAndExpand" HeightRequest="40" />
+            
+            <Label Text="Cédula/R.U.C:*" HorizontalTextAlignment="Start"
+                   Style="{StaticResource BoldLabelStyle}" TextColor="Gray" FontSize="15" />
+            
+            <StackLayout Orientation="Horizontal" Spacing="3" HeightRequest="40">
+                <Entry TextColor="{StaticResource SecondaryTextColor}"
+                       FontSize="18" HorizontalOptions="FillAndExpand" 
+                       Keyboard="Text" HeightRequest="40" Text="{Binding Modelo.Cedula}"/>
+                <ffimageloadingsvg:SvgCachedImage WidthRequest="40" HeightRequest="40"
+                        Source = "iBuscar.svg">
+                        <ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding BuscarCedulaCommand}"/>
+                        </ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+                </ffimageloadingsvg:SvgCachedImage>
+            </StackLayout>
+            
+            <!--Es Persona Natural-->
+                
+            <Label Text="Nombres del Propietario:*" HorizontalTextAlignment="Start" IsVisible="{Binding EsPersonaNatural}"
+                   Style="{StaticResource BoldLabelStyle}" TextColor="Gray" FontSize="15" />
+            
+            <Entry TextColor="{StaticResource SecondaryTextColor}"
+                   FontSize="18" HorizontalOptions="FillAndExpand" Text="{Binding Modelo.Nombres}"
+                   Keyboard="Text" HeightRequest="40" IsVisible="{Binding EsPersonaNatural}"/>
+            
+            <Label Text="Apellidos del Propietario:*" HorizontalTextAlignment="Start" IsVisible="{Binding EsPersonaNatural}"
+                   Style="{StaticResource BoldLabelStyle}" TextColor="Gray" FontSize="15" />
+
+            <Entry TextColor="{StaticResource SecondaryTextColor}"
+                   FontSize="18" HorizontalOptions="FillAndExpand" Text="{Binding Modelo.Apellidos}"
+                   Keyboard="Text" HeightRequest="40" IsVisible="{Binding EsPersonaNatural}"/>
+            
+            <Label Text="Estado Civil:" HorizontalTextAlignment="Start" IsVisible="{Binding EsPersonaNatural}"
+                   Style="{StaticResource BoldLabelStyle}" TextColor="Gray" FontSize="15" />
+        
+            <Picker HorizontalOptions="FillAndExpand" HeightRequest="40" 
+                    ItemsSource="{Binding EstadoCivil}" SelectedIndex="{Binding Modelo.EstadoCivil}"
+                    IsVisible="{Binding EsPersonaNatural}"/>
+            
+            <Label Text="Cédula (Cónyuge):" HorizontalTextAlignment="Start" IsVisible="{Binding EsPersonaNatural}"
+                   Style="{StaticResource BoldLabelStyle}" TextColor="Gray" FontSize="15" />
+        
+            <Entry TextColor="{StaticResource SecondaryTextColor}"
+                   FontSize="18" HorizontalOptions="FillAndExpand" IsVisible="{Binding EsPersonaNatural}"
+                   Keyboard="Text" HeightRequest="40"/>
+            
+            <Label Text="Nombres (Cónyuge):" HorizontalTextAlignment="Start" IsVisible="{Binding EsPersonaNatural}"
+                   Style="{StaticResource BoldLabelStyle}" TextColor="Gray" FontSize="15" />
+        
+            <Entry TextColor="{StaticResource SecondaryTextColor}"
+                   FontSize="18" HorizontalOptions="FillAndExpand" IsVisible="{Binding EsPersonaNatural}"
+                   Keyboard="Text" HeightRequest="40"/>
+            
+            <!--Es Persona Juridica-->
+            <Label Text="Razón Social:*" HorizontalTextAlignment="Start" IsVisible="{Binding EsPersonaJuridica}"
+                   Style="{StaticResource BoldLabelStyle}" TextColor="Gray" FontSize="15" />
+
+            <Entry TextColor="{StaticResource SecondaryTextColor}"
+                   FontSize="18" HorizontalOptions="FillAndExpand" 
+                   Keyboard="Text" HeightRequest="40" IsVisible="{Binding EsPersonaJuridica}"/>
+            
+            <!--Resto de campos-->
+            <Label Text="Tipo de Inmueble:" HorizontalTextAlignment="Start"
+                   Style="{StaticResource BoldLabelStyle}" TextColor="Gray" FontSize="15" />
+        
+            <Picker HorizontalOptions="FillAndExpand" ItemsSource="{Binding TipoInmueble}" HeightRequest="40"/>
+            
+            <Label Text="Fecha de Inscripción:" HorizontalTextAlignment="Start"
+                   Style="{StaticResource BoldLabelStyle}" TextColor="Gray" FontSize="15" />
+            
+            <DatePicker HorizontalOptions="FillAndExpand" HeightRequest="40"/>
+            
+            <Label Text="Ficha registral:#" HorizontalTextAlignment="Start"
+                   Style="{StaticResource BoldLabelStyle}" TextColor="Gray" FontSize="15" />
+
+            <Entry TextColor="{StaticResource SecondaryTextColor}"
+                   FontSize="18" HorizontalOptions="FillAndExpand" 
+                   Keyboard="Text" HeightRequest="40"/>
+            
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="5" Margin="0,10">
+                   <ffimageloadingsvg:SvgCachedImage WidthRequest="40" HeightRequest="40"
+                        Source = "iCamera.svg"/>
+                    <ffimageloadingsvg:SvgCachedImage WidthRequest="40" HeightRequest="40"
+                        Source = "iCamera.svg"/>
+                    <ffimageloadingsvg:SvgCachedImage WidthRequest="40" HeightRequest="40"
+                        Source = "iCamera.svg"/>
+            </StackLayout>
+            
+            <Label Text="Observación:" HorizontalTextAlignment="Start"
+                   Style="{StaticResource BoldLabelStyle}" TextColor="Gray" FontSize="15" />
+            
+            <StackLayout Orientation="Vertical" BackgroundColor="White">
+                <StackLayout Orientation="Vertical" BackgroundColor="LightGray" Padding="1">
+                    <Editor Text="{Binding Mensaje}" TextColor="{StaticResource SecondaryTextColor}"
+                       FontSize="18" HorizontalOptions="FillAndExpand" Keyboard="Text" HeightRequest="120"/>
+                </StackLayout>
+            </StackLayout>
+                
+            <controls:CustomGradientButton 
+                        Text="Siguiente" Margin="0,20"
+                        Style="{StaticResource BoldButtonStyle}"
+                        TextColor="{StaticResource LightTextColor}"
+                        StartColor="{StaticResource ButtonStartBackColor}" 
+                        EndColor="{StaticResource ButtonEndBackColor}"
+                        HeightRequest="50" HorizontalOptions="FillAndExpand" 
+                        Command="{Binding SiguienteCommand}" />
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
