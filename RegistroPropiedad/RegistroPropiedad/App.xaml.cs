@@ -35,6 +35,7 @@ namespace RegistroPropiedad
             Container.RegisterTypeForNavigation<InicialPage>();
             Container.RegisterTypeForNavigation<IniciarSesionPage>();
             Container.RegisterTypeForNavigation<RegistroPage>();
+            Container.RegisterTypeForNavigation<PerfilPage>();
             Container.RegisterTypeForNavigation<VerificarDatosPage>();
             Container.RegisterTypeForNavigation<CrearContraPage>();
             Container.RegisterTypeForNavigation<UbicacionPage>();
@@ -46,6 +47,8 @@ namespace RegistroPropiedad
             Container.RegisterTypeForNavigation<SugerenciasComentariosPage>();
             Container.RegisterTypeForNavigation<NuevoTramitePage>();
             Container.RegisterTypeForNavigation<NuevoTramitePagoPage>();
+            Container.RegisterTypeForNavigation<RecuperarContraPage>();
+            Container.RegisterTypeForNavigation<RecuperarContraDatosPage>();
         }
 
         protected override void OnStart()

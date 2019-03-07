@@ -47,5 +47,11 @@ namespace RegistroPropiedad.Views
                 }
             });
         }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            MessagingCenter.Unsubscribe<string>(this, "CalcularGrafica");
+        }
     }
 }

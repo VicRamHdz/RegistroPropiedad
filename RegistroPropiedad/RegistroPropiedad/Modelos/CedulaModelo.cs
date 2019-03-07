@@ -5,8 +5,18 @@ namespace RegistroPropiedad.Modelos
     {
         public int id { get; set; }
         public string cedRuc { get; set; }
-        public string nombres { get; set; }
-        public string apellidos { get; set; }
+        private string _nombres;
+        public string nombres
+        {
+            get { return _nombres; }
+            set { SetProperty(ref _nombres, value); }
+        }
+        private string _apellidos;
+        public string apellidos
+        {
+            get { return _apellidos; }
+            set { SetProperty(ref _apellidos, value); }
+        }
         public string tipoDocumento { get; set; }
         public string tipoPersona { get; set; }
         public long fechaCreacion { get; set; }
@@ -14,7 +24,12 @@ namespace RegistroPropiedad.Modelos
         public string direccion { get; set; }
         public string telefono1 { get; set; }
         public string telefono2 { get; set; }
-        public string correo1 { get; set; }
+        private string _correo1;
+        public string correo1
+        {
+            get { return _correo1; }
+            set { SetProperty(ref _correo1, value); }
+        }
         public string correo2 { get; set; }
         public bool estado { get; set; }
         public int estadoCivil { get; set; }

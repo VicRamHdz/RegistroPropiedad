@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:controls="clr-namespace:RegistroPropiedad.CustomControls"
+             ControlTemplate="{StaticResource CustomNavigationTemplate}"
+             x:Class="RegistroPropiedad.Views.RecuperarContraDatosPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Margin="20,70,20,20">
+                <Label Text="Nombres:*" Style="{StaticResource NormalLabelStyle}" 
+                       Margin="0,20,0,0" TextColor="{StaticResource PrimaryTextColor}"/>
+                <Entry Text="{Binding Modelo.persona.nombres}" TextColor="{StaticResource SecondaryTextColor}"
+                       FontSize="18" HorizontalOptions="FillAndExpand" Keyboard="Text" HeightRequest="40" />
+                
+                <Label Text="Apellidos:*" Style="{StaticResource NormalLabelStyle}" 
+                       Margin="0,20,0,0" TextColor="{StaticResource PrimaryTextColor}"/>
+                <Entry Text="{Binding Modelo.persona.apellidos}" TextColor="{StaticResource SecondaryTextColor}"
+                       FontSize="18" HorizontalOptions="FillAndExpand" Keyboard="Text"
+                       HeightRequest="40" />
+                
+                <Label Text="Correo electrónico:*" Style="{StaticResource NormalLabelStyle}" 
+                       Margin="0,20,0,0" TextColor="{StaticResource PrimaryTextColor}"/>
+                <Entry Text="{Binding Modelo.persona.correo1}" TextColor="{StaticResource SecondaryTextColor}"
+                       FontSize="18" HorizontalOptions="FillAndExpand" Keyboard="Email" HeightRequest="40" />
+                
+            </StackLayout>
+            <StackLayout Spacing="0" VerticalOptions="EndAndExpand">
+                <BoxView HorizontalOptions="FillAndExpand" Color="{StaticResource PrimaryBorderColor}" HeightRequest="1"/>
+                <controls:CustomGradientButton Text="Enviar Correo Electrónico" 
+                        StartColor="{StaticResource ButtonStartBackColor}" 
+                        EndColor="{StaticResource ButtonEndBackColor}"
+                        HeightRequest="50" BorderRadius="0"
+                        TextColor="{StaticResource LightTextColor}"
+                        Style="{StaticResource BoldButtonStyle}"
+                        VerticalOptions="EndAndExpand"
+                        HorizontalOptions="FillAndExpand" 
+                        Command="{Binding RecuperarCommand}" />
+            </StackLayout>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

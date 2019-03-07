@@ -48,5 +48,26 @@ namespace RegistroPropiedad.Modelos
             get { return _EstadoCivil; }
             set { SetProperty(ref _EstadoCivil, value); }
         }
+
+        private byte _Imagen1;
+        public byte Imagen1
+        {
+            get { return _Imagen1; }
+            set { SetProperty(ref _Imagen1, value); }
+        }
+
+        private byte _Imagen2;
+        public byte Imagen2
+        {
+            get { return _Imagen2; }
+            set { SetProperty(ref _Imagen2, value); }
+        }
+
+        private byte _Imagen3;
+        public byte Imagen3
+        {
+            get { return _Imagen3; }
+            set { SetProperty(ref _Imagen3, value); }
+        }
     }
 }

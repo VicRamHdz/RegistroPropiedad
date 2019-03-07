@@ -110,6 +110,9 @@ namespace RegistroPropiedad.ViewModels
 
         public ICommand SiguienteCommand { get; set; }
         public ICommand BuscarCedulaCommand { get; set; }
+        public ICommand TomarImagen1Command { get; set; }
+        public ICommand TomarImagen2Command { get; set; }
+        public ICommand TomarImagen3Command { get; set; }
 
         public TramiteDetalleModelo Modelo { get; set; }
         private TramitesServicio _servicio;
@@ -123,6 +126,9 @@ namespace RegistroPropiedad.ViewModels
             _servicio = new TramitesServicio();
             SiguienteCommand = new Command(async (p) => { await OnSiguiente(); });
             BuscarCedulaCommand = new Command(async () => { await OnBuscarCedula(); });
+            TomarImagen1Command = new Command(() => { OnTomarImagen1(); });
+            TomarImagen2Command = new Command(() => { OnTomarImagen2(); });
+            TomarImagen3Command = new Command(() => { OnTomarImagen3(); });
             CargarCombos();
         }
 
@@ -157,6 +163,21 @@ namespace RegistroPropiedad.ViewModels
             {
                 await DisplayError(ex);
             }
+        }
+
+        private void OnTomarImagen1()
+        {
+            MessagingCenter.Send<string>("Foto", "TomarFoto1");
+        }
+
+        private void OnTomarImagen2()
+        {
+            MessagingCenter.Send<string>("Foto", "TomarFoto2");
+        }
+
+        private void OnTomarImagen3()
+        {
+            MessagingCenter.Send<string>("Foto", "TomarFoto3");
         }
 
         private async Task OnSiguiente()

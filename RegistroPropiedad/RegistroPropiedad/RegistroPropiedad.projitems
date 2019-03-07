@@ -79,6 +79,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\RecuperarContraPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\RecuperarContraDatosPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
@@ -176,6 +184,15 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\NuevoTramitePagoPageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Modelos\CedulaModelo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\RecuperarContraPage.xaml.cs">
+      <DependentUpon>RecuperarContraPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\RecuperarContraPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\PerfilPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\RecuperarContraDatosPage.xaml.cs">
+      <DependentUpon>RecuperarContraDatosPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\RecuperarContraDatosPageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Views\" />

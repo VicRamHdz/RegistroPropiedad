@@ -193,6 +193,9 @@
     <PackageReference Include="Microcharts">
       <Version>0.7.1</Version>
     </PackageReference>
+    <PackageReference Include="Xam.Plugin.Media">
+      <Version>4.0.1.5</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\iAjustes.svg" />

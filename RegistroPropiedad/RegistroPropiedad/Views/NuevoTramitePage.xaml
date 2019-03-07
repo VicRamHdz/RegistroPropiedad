@@ -111,12 +111,42 @@
                    Keyboard="Text" HeightRequest="40"/>
             
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="5" Margin="0,10">
-                   <ffimageloadingsvg:SvgCachedImage WidthRequest="40" HeightRequest="40"
-                        Source = "iCamera.svg"/>
+                    <ffimageloadingsvg:SvgCachedImage WidthRequest="40" HeightRequest="40" x:Name="btnImagen1"
+                        Source = "iCamera.svg">
+                        <ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding TomarImagen1Command}"/>
+                        </ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+                    </ffimageloadingsvg:SvgCachedImage>
+                    <ffimageloading:CachedImage x:Name="Imagen1" IsVisible="false"
+                                                WidthRequest="70" HeightRequest="70">
+                        <ffimageloading:CachedImage.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding TomarImagen1Command}"/>
+                        </ffimageloading:CachedImage.GestureRecognizers>
+                    </ffimageloading:CachedImage>
                     <ffimageloadingsvg:SvgCachedImage WidthRequest="40" HeightRequest="40"
-                        Source = "iCamera.svg"/>
+                        Source = "iCamera.svg" x:Name="btnImagen2">
+                        <ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding TomarImagen2Command}"/>
+                        </ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+                    </ffimageloadingsvg:SvgCachedImage>
+                    <ffimageloading:CachedImage x:Name="Imagen2" IsVisible="false"
+                                                WidthRequest="70" HeightRequest="70">
+                        <ffimageloading:CachedImage.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding TomarImagen2Command}"/>
+                        </ffimageloading:CachedImage.GestureRecognizers>
+                    </ffimageloading:CachedImage>
                     <ffimageloadingsvg:SvgCachedImage WidthRequest="40" HeightRequest="40"
-                        Source = "iCamera.svg"/>
+                        Source = "iCamera.svg" x:Name="btnImagen3">
+                        <ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding TomarImagen3Command}"/>
+                        </ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+                    </ffimageloadingsvg:SvgCachedImage>
+                    <ffimageloading:CachedImage x:Name="Imagen3" IsVisible="false"
+                                                WidthRequest="70" HeightRequest="70" >
+                        <ffimageloading:CachedImage.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding TomarImagen3Command}"/>
+                        </ffimageloading:CachedImage.GestureRecognizers>
+                    </ffimageloading:CachedImage>
             </StackLayout>
             
             <Label Text="Observación:" HorizontalTextAlignment="Start"

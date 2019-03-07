@@ -26,5 +26,14 @@ namespace RegistroPropiedad.Servicios
             var result = await PostAsync<PerfilUsuarioModelo, string>(endpoint, perfil);
             return result;
         }
+
+        public async Task<ResponseResult<string>> RecuperarContra(string email, string nombreusuario, int id)
+        {
+            var endpoint = $"usuario/recuperar/{email}/{nombreusuario}/{id}";
+            var p = new { };
+            var result = await PostAsync<object, string>(endpoint, p);
+            return result;
+        }
+        //http://18.215.235.24:8952/rppconsultas/api/usuario/recuperar/andysanchezgonzalez1996@gmail.com/0953255957/90
     }
 }

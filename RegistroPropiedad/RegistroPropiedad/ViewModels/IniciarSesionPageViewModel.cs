@@ -14,6 +14,7 @@ namespace RegistroPropiedad.ViewModels
     {
         public ICommand RegresarCommand { get; set; }
         public ICommand IngresarCommand { get; set; }
+        public ICommand RecuperarContraCommand { get; set; }
 
         private string _Identificacion;
         public string Identificacion
@@ -43,6 +44,7 @@ namespace RegistroPropiedad.ViewModels
             _dialogService = dialogService;
             RegresarCommand = new Command(async () => { await OnRegresar(); });
             IngresarCommand = new Command(async () => { await OnIngresar(); });
+            RecuperarContraCommand = new Command(async () => { await OnRecuperarContra(); });
             Title = "Iniciar sesion";
             _servicio = new UsuarioServicio();
         }
@@ -92,6 +94,18 @@ namespace RegistroPropiedad.ViewModels
             finally
             {
                 IsBusy = false;
+            }
+        }
+
+        private async Task OnRecuperarContra()
+        {
+            try
+            {
+                await _navigation.NavigateAsync("RecuperarContraPage");
+            }
+            catch (Exception ex)
+            {
+                await DisplayError(ex);
             }
         }
 
